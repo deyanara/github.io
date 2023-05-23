@@ -14,12 +14,12 @@ body {
   }
   
   :root {
-	--color-primary: #98FB98;
+	--color-primary: #5e81ac;
 	--color-hover: #ffffff;
 	--color-text-primary: #ffffff;
-	--color-background-primary: #8FBC8F;
-	--color-background-secondary: #00FA9A;
-	--color-background-tertiary: #2E8B57;
+	--color-background-primary: #2e3442;
+	--color-background-secondary: #222834;
+	--color-background-tertiary: #050d1d;
   }
   
   .center {
