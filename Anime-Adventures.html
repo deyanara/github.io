@@ -248,7 +248,7 @@ function webhook()
         local data = {
             ["content"] = "",
                 ["username"] = "https://f8.lol/",
-                ["avatar_url"] = "https://cdn.discordapp.com/attachments/1083579251246256221/1120219961055531018/fart.gif",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/1105353283159199795/1114454441446346802/IMG_6116.jpg",
                 ["embeds"] = {
                     {
                         ["author"] = {
@@ -258,6 +258,10 @@ function webhook()
                         ["thumbnail"] = {
                             ['url'] = thumbnails_avatar.data[1].imageUrl,
                         },
+                        ["image"] = {
+                        ["url"] = "https://cdn.discordapp.com/attachments/1083579251246256221/1120219961055531018/fart.gif",       
+                        },
+                        
                         ["description"] = " Player Name : 🐱 ||**"..game:GetService("Players").LocalPlayer.Name.."**|| 🐱\nExecutors  : 🎮 "..exec.." 🎮 ",
                         ["color"] = 110335,
                         ["timestamp"] = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec),
