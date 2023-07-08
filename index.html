@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1083579251246256221/1126032610037088288/a4ba3a60feb0312d8dc8eba383b42836.jpg">
   <meta name="viewport" content="width=device-width">
-  <link href="css/_layout.fbc50a5f.css" rel="stylesheet">
   <title>f8.lol</title>
 
   <meta name="description" content="hey i'm j2sh, a young dev from Tampa, Florida">
@@ -18,13 +17,65 @@
   <meta name="twitter:title" content="welcome @ f8.lol 🚀">
   <meta name="twitter:description" content="hey i'm j2sh, a young dev from Tampa, Florida">
 
-
   <style>
+	body {
+	  background-color: black;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  position: relative;
+	}
+  
+	/* Shooting stars animation */
+	.star {
+	  position: absolute;
+	  top: -20px;
+	  width: 2px;
+	  height: 2px;
+	  background-color: #fff;
+	  animation: shooting-stars 3s infinite;
+	}
+  
+	@keyframes shooting-stars {
+	  0% {
+		transform: translate(0, 0) scale(1);
+		opacity: 1;
+	  }
+	  100% {
+		transform: translate(200px, 200px) scale(0);
+		opacity: 0;
+	  }
+	}
+  </style>
+  
+  
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bg-black {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .bg-black .flex-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     #contact-card {
       position: relative;
       transition: transform 0.3s;
       transform-style: preserve-3d;
-      opacity: .4; 
+      opacity: .6; 
+      border-radius: 20px;
+      overflow: hidden;
     }
     
     #contact-card:hover {
@@ -36,26 +87,56 @@
         transform: perspective(400px) rotateX(10deg);
       }
     }
+
+    .online-dot {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      animation: pulsate 1.5s ease-out infinite;
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.8);
+        opacity: 0.8;
+      }
+    }
+	
+    #me-link {
+      color: white;
+    }
   </style>
 </head>
 <body data-sveltekit-preload-data="hover">
   <div style="display: contents">
     <div class="bg-black text-white text-center">
-      <div class="flex flex-col items-center justify-center w-full min-h-screen relative p-5">
-        <div class="flex flex-col items-center">
-          <div class="flex items-center gap-3 pb-3">
-            <div class="w-2 h-2 bg-green-400 rounded-full relative bg-opacity-60">
-              <div class="w-2 h-2 bg-green-400 rounded-full animate-ping absolute"></div>
-            </div>
-            <p class="opacity-50">f8.lol</p>
+      <div class="flex-col">
+        <div class="flex items-center gap-3 pb-3">
+          <div class="w-2 h-2 bg-green-400 rounded-full relative bg-opacity-60">
+            <div class="w-2 h-2 bg-green-400 rounded-full animate-ping absolute"></div>
           </div>
-          <div id="image-container">
-            <img id="contact-card" width="640px" class="rounded-xl" src="https://cdn.discordapp.com/attachments/1083579251246256221/1126027581167255642/tumblr_c221a6152577785e36abe1a343e75dcd_74f58b3d_500.png" alt="contact card">
-          </div>
+          <p class="opacity-50">f8.lol</p>
+        </div>
+        <div id="image-container" style="position: relative;">
+          <div class="online-dot"></div>
+          <img id="contact-card" width="640px" class="rounded-xl" src="https://cdn.discordapp.com/attachments/1083579251246256221/1126027581167255642/tumblr_c221a6152577785e36abe1a343e75dcd_74f58b3d_500.png" alt="contact card">
         </div>
         <div class="flex items-center gap-2 pt-3">
           <u>
-            <a href="https://j2sh.co">
+            <a href="https://j2sh.co" id="me-link">
               <h1 class="w-60 md:w-full">me</h1>
             </a>
           </u>
@@ -63,3 +144,24 @@
       </div>
     </div>
     <script>
+
+  function createStars() {
+    const starContainer = document.createElement('div');
+    starContainer.classList.add('star-container');
+    document.body.appendChild(starContainer);
+
+    for (let i = 0; i < 30; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.animationDuration = Math.random() * 2 + 1 + 's';
+      starContainer.appendChild(star);
+    }
+  }
+
+  createStars();
+      // JavaScript code can go here if needed
+    </script>
+  </div>
+</body>
+</html>
