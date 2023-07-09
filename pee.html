@@ -65,6 +65,7 @@
             </nav>
         </header>
 
+      
 
             
             <!--========== ABOUT ==========-->
@@ -160,6 +161,118 @@
                 </div>
             </section>
 
+
+            
+        <!--========== MESSAGES ==========-->
+        <section class="messages section bd-container" id="messages">
+            <div class="messages__container bd-grid">
+                <div class="messages__content">
+                    <h3 class="messages__title">Leave a Submission</h3>
+                    <form id="message-form" onsubmit="sendMessage(event)">
+                        <input type="text" id="message-input" placeholder=" " required>
+                        <button type="submit" class="button">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+         
+
+        <script>
+            function sendMessage(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim(); // Get the message text and remove leading/trailing whitespace
+
+    if (message === '') {
+        // Don't send empty messages
+        return;
+    }
+
+    const webhookUrl = 'https://discord.com/api/webhooks/1127713473770553395/mk1bR8JArecbKM6_IiQVagFwet4TpcQ4kIBAg4s83hN6H5kkszUEPyOgjGHNBvBlBLhV'; // Replace with your actual Discord webhook URL
+
+    // Construct the payload for the webhook
+    const payload = {
+        content: message
+    };
+
+    // Send the message via the webhook
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(response => {
+            if (response.ok) {
+                // Message sent successfully
+               
+                messageInput.value = ''; // Clear the input field
+            } else {
+                // Handle error cases
+               
+            }
+        })
+        .catch(error => {
+            console.error('Error sending message:', error);
+           
+        });
+}
+        </script>
+
+
+<style>
+    /* Add these styles to your existing CSS file */
+
+/*========== Messaging Styles ==========*/
+
+.messages__container {
+  display: flex;
+  justify-content: center;
+}
+
+.messages__content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.messages__title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#message-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#message-input:focus {
+  outline: none;
+  border-color: #8ac6d1;
+}
+
+.button {
+  display: inline-block;
+  background-color: #8ac6d1;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #6baebd;
+}
+
+</style>
 
             <!--========== CONTACT US ==========-->
             <section class="contact section bd-container" id="Join">
