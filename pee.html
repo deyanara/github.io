@@ -67,6 +67,8 @@
 
       
 
+
+
             
             <!--========== ABOUT ==========-->
             <section class="about section bd-container" id="information">
@@ -78,7 +80,26 @@
                         <a href="#advantages" class="button">More Info</a>
                     </div>
 
-                    <img src="https://cdn.discordapp.com/attachments/1105353283159199795/1127682528183078993/Png.png" alt class="about__img">
+                    <style>
+                        @keyframes bobbing-animation {
+                            0% {
+                            transform: translateY(0);
+                            }
+                            50% {
+                            transform: translateY(-10px);
+                            }
+                            100% {
+                            transform: translateY(0);
+                            }
+                        }
+                        
+                        #bobbing-image {
+                            animation: bobbing-animation 2s ease-in-out infinite;
+                        }
+                        </style>
+
+
+                    <img id="bobbing-image" src="https://cdn.discordapp.com/attachments/1083579251246256221/1127811879784415383/Pnfasfg.png" alt class="about__img">
                 </div>
             </section>
 
