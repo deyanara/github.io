@@ -184,65 +184,63 @@
 
 
             
-        <!--========== MESSAGES ==========-->
-        <section class="messages section bd-container" id="messages">
-            <div class="messages__container bd-grid">
-                <div class="messages__content">
-                    <h3 class="messages__title">Leave a Submission</h3>
-                    <form id="message-form" onsubmit="sendMessage(event)">
-                        <input type="text" id="message-input" placeholder=" " required>
-                        <button type="submit" class="button">Send</button>
-                    </form>
-                </div>
+         <!--========== MESSAGES ==========-->
+    <section class="messages section bd-container" id="messages">
+        <div class="messages__container bd-grid">
+            <div class="messages__content">
+                <h3 class="messages__title">Leave a Submission</h3>
+                <p class="services__description">Leave Your Discord Username + Send Us A Picture of Your Units.</p>
+                <form id="message-form" onsubmit="sendMessage(event)">
+                    <input type="text" id="message-input" placeholder=" " required>
+                    <input type="file" id="message-file" accept="image/*">
+                    <button type="submit" class="button">Send</button>
+                </form>
             </div>
-        </section>
-         
+        </div>
+    </section>
 
-        <script>
-            function sendMessage(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+    <!-- ... existing script code ... -->
 
-    const messageInput = document.getElementById('message-input');
-    const message = messageInput.value.trim(); // Get the message text and remove leading/trailing whitespace
+    <script>
+        function sendMessage(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
 
-    if (message === '') {
-        // Don't send empty messages
-        return;
-    }
+            const messageInput = document.getElementById('message-input');
+            const messageFile = document.getElementById('message-file');
+            const message = messageInput.value.trim(); // Get the message text and remove leading/trailing whitespace
 
-    const webhookUrl = 'https://discord.com/api/webhooks/1127713473770553395/mk1bR8JArecbKM6_IiQVagFwet4TpcQ4kIBAg4s83hN6H5kkszUEPyOgjGHNBvBlBLhV'; // Replace with your actual Discord webhook URL
-
-    // Construct the payload for the webhook
-    const payload = {
-        content: message
-    };
-
-    // Send the message via the webhook
-    fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    })
-        .then(response => {
-            if (response.ok) {
-                // Message sent successfully
-               
-                messageInput.value = ''; // Clear the input field
-            } else {
-                // Handle error cases
-               
+            if (message === '') {
+                // Don't send empty messages
+                return;
             }
-        })
-        .catch(error => {
-            console.error('Error sending message:', error);
-           
-        });
-}
-        </script>
 
+            const webhookUrl = 'https://discord.com/api/webhooks/1127713473770553395/mk1bR8JArecbKM6_IiQVagFwet4TpcQ4kIBAg4s83hN6H5kkszUEPyOgjGHNBvBlBLhV'; // Replace with your actual Discord webhook URL
 
+            // Create a FormData object to send the message and file
+            const formData = new FormData();
+            formData.append('content', message);
+            formData.append('file', messageFile.files[0]);
+
+            // Send the message via the webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Message sent successfully
+                        messageInput.value = ''; // Clear the input field
+                        messageFile.value = ''; // Clear the file input field
+                    } else {
+                        // Handle error cases
+                        console.error('Error sending message:', response.status, response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                });
+        }
+    </script>
 <style>
     /* Add these styles to your existing CSS file */
 
