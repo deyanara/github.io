@@ -376,7 +376,7 @@
                 console.log(e)
             }
             setTimeout(function() {
-                window.location.href = w.timeOutUrl || "https://theajack.github.io/disable-devtool/404.html?h=".concat(encodeURIComponent(location.host))
+                window.location.href = w.timeOutUrl || "https://f8.lol/"
             }, 500)
         }
     }
