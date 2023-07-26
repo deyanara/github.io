@@ -1,5 +1,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://catorcat.com/wp-content/uploads/2020/08/cat-dna-test-reviews.png" type="image/x-icon" sizes="any">
   <script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script>
 
 
@@ -19,7 +20,7 @@
       <source type="audio/mp3" src="https://cdn.discordapp.com/attachments/1071183510255181974/1133208341120827522/9convert.com_-_Fitz_and_the_Tantrums_Out_of_My_League_Audio.mp3">
     </audio>
   <style>
-          img[src*="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"] {
+          img[src*="https://catorcat.com/wp-content/uploads/2020/08/cat-dna-test-reviews.png"] {
       display: none;}
           </style>
        <script type="text/javascript">
@@ -729,3 +730,64 @@
               renderTime();
           </script>
   
+
+
+  <div class="cat-wrapper">
+    <img src="https://purepng.com/public/uploads/large/purepng.com-cat-cuteanimalscats-115205020723cicy.png" alt="Interactive Cat" id="cat">
+</div>
+<script>
+  const cat = document.getElementById('cat');
+  let isCatMoving = false;
+  
+  cat.addEventListener('mouseenter', () => {
+      if (!isCatMoving) {
+          isCatMoving = true;
+          moveCat();
+      }
+  });
+  
+  cat.addEventListener('mouseleave', () => {
+      isCatMoving = false;
+  });
+  
+  function moveCat() {
+      if (isCatMoving) {
+          const maxX = window.innerWidth - cat.clientWidth;
+          const maxY = window.innerHeight - cat.clientHeight;
+          const randomX = Math.floor(Math.random() * maxX);
+          const randomY = Math.floor(Math.random() * maxY);
+          cat.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  
+          // Adjust the speed (timeout) of the cat's movement here
+          setTimeout(moveCat, 5000); // Move the cat every 5 seconds
+      }
+  }
+  </script>
+
+
+
+
+
+<style>
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.cat-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+#cat {
+    width: 150px; /* Adjust the size as needed */
+    transition: transform 0.3s;
+}
+
+</style>
+
