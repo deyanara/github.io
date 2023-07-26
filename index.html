@@ -165,7 +165,7 @@
 
 
                               <div id="profile">
-                                <img src="" alt="" id="">
+
                                 <p id="username"></p>
                                 <p id="status"></p>
                             </div>
@@ -178,7 +178,7 @@
                                         .then(response => response.json())
                                         .then(data => {
                                             const profile = document.getElementById('profile');
-                                            const avatar = document.getElementById('avatar');
+
                                             const username = document.getElementById('username');
                                             const status = document.getElementById('status');
                         
@@ -186,7 +186,7 @@
                                             const isOnline = data.data?.discord_status === 'online';
                         
                                             // Update profile picture and username
-                                            avatar.src = `https://cdn.discordapp.com/avatars/${userId}/${data.data?.avatar}.png`;
+
                                             username.textContent = data.data?.username;
                         
                                             // Update online status
@@ -820,5 +820,4 @@ body, html {
 }
 
 </style>
-  </body>
-</html>
+
