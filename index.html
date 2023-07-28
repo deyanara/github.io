@@ -38,6 +38,48 @@
     $(document).on("keydown", disableF5);
     
 		</script>
+
+
+<script>
+   // Function to check if a webpage is empty
+async function isPageEmpty(url) {
+  try {
+    const response = await fetch(url);
+    const content = await response.text();
+    return content.trim() === '';
+  } catch (error) {
+    return true; // Treat inaccessible pages as empty
+  }
+}
+
+// List of forbidden URLs
+const forbiddenUrls = [
+  '/page1.html',
+  '/page2.html',
+  '/page3.html',
+  // Add more page URLs to the list
+];
+
+// Check if the current page is in the forbiddenUrls list
+const currentPageUrl = window.location.pathname;
+if (forbiddenUrls.includes(currentPageUrl)) {
+  // Check if the page is empty
+  isPageEmpty(window.location.href)
+    .then(isEmpty => {
+      // If the page is empty, redirect to the main page
+      if (isEmpty) {
+        window.location.replace('/'); // Replace / with the URL of your main page
+      }
+    })
+    .catch(error => {
+      console.error('Error checking page content:', error);
+    });
+}
+
+  </script>
+  
+
+
 		<style>
     body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
     a {
