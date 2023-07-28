@@ -148,69 +148,98 @@
   
   <div class="center">
   <center>
-  <p>j2sh :)
+  <p>
   </p>
   <div style="letter-spacing: 3;font-size: 15;"><div id="center">
               <div class="animated fadeInDown">
   
               </div>
               
+
+              <style>
+                .darker-image-container {
+                    position: relative;
+                    display: inline-block;
+                }
+        
+                .darker-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5) to control darkness */
+                }
+            </style>
+
               <div class="animated fadeInUp">
                   <a href="https://www.youtube.com/@j2shn/about">
-                      <img src="https://i.gifer.com/2r6D.gif" alt="UwU">
+                    <img src="https://cdn.discordapp.com/attachments/503587967709741219/1134274102690054174/f8.gif" alt="UwU" style="width: 450px; height: 250px;">
                     </a>
 
-                      <pre><pre align="middle"><a href="https://twitter.com/d2rkrai" target="_blank"><i class="fab fa-twitter"></i></a> <a href="https://github.com/bigbootylatinas" target="_blank"><i class="fab fa-github"></i></a> <a href="https://discord.com/users/277674827215536129" target="_blank"><i class="fab fa-discord"></i></a> <a href="https://www.instagram.com/f8.iol/" target="_blank"><i class="fab fa-instagram"></i></a> <a href="https://open.spotify.com/user/hrg9jpul3yxpmy9tn6y5xxogz?si=fd84c505f8e54633" target="_blank"><i class="fab fa-spotify"></i></a> <a href="https://www.twitch.tv/j2shn" target="_blank"><i class="fab fa-twitch"></i></a>  </pre></pre> 
-                              <center><div id="clockDisplay" class="clockStyle">09:44:37 PM</div></center>
+
+                    
+
+                      <pre>
+                        
+                        
+                        
+                        <pre align="middle"><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a> <a href="https://discord.com/users/277674827215536129" target="_blank"><i class="fab fa-discord"></i></a> <a href="https://www.instagram.com/f8.iol/" target="_blank"><i class="fab fa-instagram"></i></a> </pre></pre> 
+                              
 
 
-                              <div id="profile">
+                        <style>
+                            /* Add some basic styles to the <p4> tags */
+                            center {
+                              font-family: Arial, sans-serif;
+                              font-size: 18px;
+                            }
+                        
+                            p4 {
+                              position: relative;
+                              display: inline-block;
+                              padding-bottom: 5px; /* Add some space below the text for the underline */
+                              margin: 0 15px; /* Adjust the spacing between buttons as needed */
+                              color: rgb(255, 255, 255)fff; /* Set the default color of the text */
+                              text-decoration: none; /* Remove the default underline from the text */
+                            }
+                        
+                            /* Style the underline */
+                            p4::after {
+                              content: "";
+                              position: absolute;
+                              left: 0;
+                              bottom: 0;
+                              width: 100%;
+                              height: 2px; /* Adjust the thickness of the underline */
+                              background-color: rgb(255, 255, 255); /* Set the color of the underline */
+                              transform: scaleX(0); /* Initially, the underline is not visible */
+                              transform-origin: right; /* The underline will expand from the right side */
+                              transition: transform 0.3s ease; /* Add a transition effect */
+                            }
+                        
+                            /* Add the underline effect when the user hovers over the button */
+                            p4:hover::after {
+                              transform: scaleX(1); /* Expand the underline to full width on hover */
+                              transform-origin: left; /* The underline will expand from the left side on hover */
+                            }
+                          </style>
 
-                                <p id="username"></p>
-                                <p id="status"></p>
-                            </div>
-                        
-                            <script>
-                                const userId = '277674827215536129'; // Replace with your Discord User ID
-                        
-                                function updateStatus() {
-                                    fetch(`https://api.lanyard.rest/v1/users/${userId}`)
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            const profile = document.getElementById('profile');
+                        <center>
+                            <p4><a href="https:/f8.lol">shop</a></p4>
+                            <p4><a href="https:/f8.lol">contact</a></p4>
+                            <p4><a href="https:/f8.lol">about</a></p4>
+                          </center>
 
-                                            const username = document.getElementById('username');
-                                            const status = document.getElementById('status');
-                        
-                                            // Check if the user is online or offline
-                                            const isOnline = data.data?.discord_status === 'online';
-                        
-                                            // Update profile picture and username
+                          <center>
+                            <p4><a href="https:/f8.lol"> </a></p4>
+                            <p4><a href="https:/f8.lol"> </a></p4>
+                            <p4><a href="https:/f8.lol"> </a></p4>
+                          </center>
 
-                                            username.textContent = data.data?.username;
-                        
-                                            // Update online status
-                                            if (isOnline) {
-                                                status.textContent = 'Online';
-                                                status.style.color = 'green';
-                                            } else {
-                                                status.textContent = 'Offline';
-                                                status.style.color = 'red';
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error fetching data:', error);
-                                        });
-                                }
-                        
-                                // Update status on page load
-                                updateStatus();
-                        
-                                // Update status every 5 seconds (you can adjust the interval as needed)
-                                setInterval(updateStatus, 5000);
-                            </script>
-
-
+                      
+                        <center><div id="clockDisplay" class="clockStyle">09:44:37 PM</div></center>
+                     
 
 
 
@@ -251,8 +280,6 @@
   <br>
   <div id="pp" style="cursor: pointer; letter-spacing: 2px; font-size: 14px;" onclick="pVid();"><i class="fas fa-play"></i></div>
 
-
-  <img src="https://media.tenor.com/qvQpDge-RrsAAAAi/eevee-dance-moves.gif" alt="Interactive Cat" id="cat" style="margin-left: -30px;">
 
   
   </center>
