@@ -97,18 +97,30 @@ async function setActivityBigImage() {
         bigImage.style.display = 'none';
         return;
     }
+
     if (mostRecent.assets.large_image.includes("spotify")) {
         bigImage.style.display = 'block';
         bigImage.src = spotify.album_art_url;
-		bigImage.title =  spotify.album;
+        bigImage.title = spotify.album;
+        bigImage.style.cursor = 'pointer'; // Add a pointer cursor to indicate it's clickable
+
+        // Add a click event listener to open the Spotify profile URL in a new tab
+        bigImage.addEventListener('click', function() {
+            window.open('https://open.spotify.com/user/hrg9jpul3yxpmy9tn6y5xxogz?si=7e28a955da74427b', '_blank'); // Replace with your Spotify profile URL
+        });
 
         return;
     }
-    const imageLink = mostRecent.assets.large_image.includes("external") ? `https://media.discordapp.net/external/${mostRecent.assets.large_image.split("mp:external/")[1]}` :  `https://cdn.discordapp.com/app-assets/${mostRecent.application_id}/${mostRecent.assets.large_image}.png?size=256`;
+
+    const imageLink = mostRecent.assets.large_image.includes("external") ? `https://media.discordapp.net/external/${mostRecent.assets.large_image.split("mp:external/")[1]}` : `https://cdn.discordapp.com/app-assets/${mostRecent.application_id}/${mostRecent.assets.large_image}.png?size=256`;
     bigImage.style.display = 'block';
     bigImage.src = imageLink;
-	bigImage.title = mostRecent.assets.large_text;
+    bigImage.title = mostRecent.assets.large_text;
+    bigImage.style.cursor = 'default'; // Reset cursor to default
 }
+
+
+
 async function setActivitySmallImage() {
     const {
         data: {
