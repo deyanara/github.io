@@ -9,10 +9,10 @@
     <meta content="Placeholder" property="og:image" />
     <meta content="#0078D7" data-react-helmet="true" name="theme-color"/>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="j2sh">
     <link rel="icon" href="https://catorcat.com/wp-content/uploads/2020/08/cat-dna-test-reviews.png" type="image/x-icon" sizes="any">
+    <script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script>
     <link rel="stylesheet" href="css/main.css">
     <script>
         document.onkeydown = (e) => {
@@ -70,7 +70,6 @@
 						    <a title="YouTube" href="https://youtube.com/@j2shy"><img class="connection-icon" src="assets/connections/youtube.png" alt="YouTube"></a>
                             <a title="Discord" href="https://discord.com/users/277674827215536129/"><img class="connection-icon" src="assets/connections/discord.svg" alt="Discord"></a>
                             <a title="GitHub" href="https://github.com/bigbootylatinas/"><img class="connection-icon" src="assets/connections/github.svg" alt="GitHub"></a>
-	    					<a title="Twitter" href="https://twitter.com/d2rkrai/"><img class="connection-icon" src="assets/connections/twitter.png" alt="Twitter"></a>
                             <a title="Steam" href="https://steamcommunity.com/id/j2sh"><img class="connection-icon" src="assets/connections/steam.png" alt="Steam"></a>							
                         </div>
                     </div>
@@ -95,9 +94,46 @@
                     <div class="card-title">@j2sh > About</div>
                     <div class="about-me">
                         <ul>
-		        		<li>[🧌] Vanity Plate Enthusiast</li>
-                        <li>[🧌] Collects OG User + 3C</li>
-                        <li>[🧌] Bad Programmer</li>
+		        		<li>[🏎️] Vanity Plate Enthusiast</li>
+                        <li>[ඞා] Collects OG User + 3C</li>
+                        <li>[🧑🏻‍💻] Bad Programmer</li>
+                        <li>[⌚] Local Time (EST) <span id="local-time"></span></li>
+
+                        <script>
+                        function setBackground() {
+                    let bgElement = document.querySelector('.bg');
+
+                    if (bgElement) {
+                        bgElement.style.backgroundImage = "url('https://media.giphy.com/media/VDGOdvmp1bpc3PcCry/giphy-downsized-large.gif')";
+                    }
+
+                    // Function to update the local time in EST
+                    function updateLocalTime() {
+                        let now = new Date();
+                        let localTimeElement = document.getElementById('local-time');
+                        if (localTimeElement) {
+                            let options = {
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                second: 'numeric',
+                                hour12: true,
+                                timeZone: 'America/New_York' // Set the timezone to EST
+                            };
+                            let localTimeString = now.toLocaleString('en-US', options);
+                            localTimeElement.textContent = localTimeString;
+                        }
+                    }
+
+                    // Initially, update the local time
+                    updateLocalTime();
+
+                    // Set up an interval to update the local time every second
+                    setInterval(updateLocalTime, 1000);
+                }
+
+                window.onload = setBackground;
+
+                        </script>
                         </ul> 
                     </div>
                 </div>
