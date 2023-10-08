@@ -1,154 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color-scheme: dark;">
 <head>
-    <title>f8</title>
-    <script defer src="js/lanyard.js"></script>
-    <meta content="f8.lol" property="og:title" />
-    <meta content="j2sh" property="og:description" />
-    <meta content="https://f8.lol" property="og:url" />
-    <meta content="Placeholder" property="og:image" />
-    <meta content="#0078D7" data-react-helmet="true" name="theme-color"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="j2sh">
-    <link rel="icon" href="https://catorcat.com/wp-content/uploads/2020/08/cat-dna-test-reviews.png" type="image/x-icon" sizes="any">
-    <script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <script>
-        document.onkeydown = (e) => {
-            if (e.key == 123) {
-                e.preventDefault();
-            }
-            if (e.ctrlKey && e.shiftKey && e.key == 'I') {
-                e.preventDefault();
-            }
-            if (e.ctrlKey && e.shiftKey && e.key == 'C') {
-                e.preventDefault();
-            }
-            if (e.ctrlKey && e.shiftKey && e.key == 'J') {
-                e.preventDefault();
-            }
-            if (e.ctrlKey && e.key == 'U') {
-                e.preventDefault();
-            }
-        };
-        function setBackground() {
-            let now = new Date();
-            let hour = now.getHours();
-            let bgElement = document.querySelector('.bg');
-        
-            if (bgElement) {
+  <title>Josh N | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1082491639395795034/1160426681169891409/code.png?ex=65349e90&is=65222990&hm=16a7370edc8ea6069621e02b7eedbef908fbeb0c3f888aa20dacbb23cfb4cb58&">
 
-                    bgElement.style.backgroundImage = "url('https://media.giphy.com/media/VDGOdvmp1bpc3PcCry/giphy-downsized-large.gif')";
-            
-            }
-        }
-        window.onload = setBackground;
-        
-        let style = document.createElement('style');
-        style.innerHTML = `
-
-        `;
-        document.head.appendChild(style);
-    </script>
 </head>
-<body oncontextmenu="return false">
-    <div class="bg" id="homepage">
-        <div class="wrapper">
-            <div class="card" id="normalmode">
-                <div class="card-title">@j2sh > Home</div>
-                <div class="user-profile">
-                    <div class="Profile-pic">
-                        <img id="pfp" src="assets/loader.gif" alt="">
-                        <div id="status-dot"></div>
-                    </div>
-                    <div class="user-info">
-                        <div id="username">j2sh</div>
-                        <div id="status"></div>
-                        <div id="status2">Loading...</div>
-                        <div class="connections">
-						    <a title="YouTube" href="https://youtube.com/@j2shy"><img class="connection-icon" src="assets/connections/youtube.png" alt="YouTube"></a>
-                            <a title="Discord" href="https://discord.com/users/277674827215536129/"><img class="connection-icon" src="assets/connections/discord.svg" alt="Discord"></a>
-                            <a title="GitHub" href="https://github.com/j2shy/"><img class="connection-icon" src="assets/connections/github.svg" alt="GitHub"></a>
-                            <a title="Steam" href="https://steamcommunity.com/id/j2sh"><img class="connection-icon" src="assets/connections/steam.png" alt="Steam"></a>							
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="activity card" id="normalmode1">
-                <div class="card-title">@j2sh > Activity</div>
-                    <div class="activity-wrapper">
-	    		        <div class="activity-images">
-                            <img id="activity-big-image" src="assets/loader.gif" alt="">
-	    			        <img id="activity-small-image" src="assets/loader.gif" alt="">
-                        </div>
+<body>
+  <div class="noise"></div>
 
-                        <div class="activity-info">
-	    			        <div id="activity-name">Loading...</div>
-                            <div id="activity-state">Loading...</div>
-                            <div id="activity-detail">Loading...</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" id="normalmode2">
-                    <div class="card-title">@j2sh > About</div>
-                    <div class="about-me">
-                        <ul>
-		        <li>[🏎️] Vanity Plate Enthusiast/Holder ("Y5")</li>
-                        <li>[⭐] Collects OG Usernames + 3C</li>
-                        <li>[🧑🏻‍💻] Crappy Programmer (main language is sadly lua)</li>
-                        <li>[⌚] Local Time (EST) <span id="local-time"></span></li>
+  <div class="flex flex-col m-5" style="opacity: 1; transform: none;">
+    <div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-4 my-5 container mx-auto xl:px-20">
 
-                        <script>
-                        function setBackground() {
-                    let bgElement = document.querySelector('.bg');
-
-                    if (bgElement) {
-                        bgElement.style.backgroundImage = "url('https://media.giphy.com/media/VDGOdvmp1bpc3PcCry/giphy-downsized-large.gif')";
-                    }
-
-                    // Function to update the local time in EST
-                    function updateLocalTime() {
-                        let now = new Date();
-                        let localTimeElement = document.getElementById('local-time');
-                        if (localTimeElement) {
-                            let options = {
-                                hour: 'numeric',
-                                minute: 'numeric',
-                                second: 'numeric',
-                                hour12: true,
-                                timeZone: 'America/New_York' // Set the timezone to EST
-                            };
-                            let localTimeString = now.toLocaleString('en-US', options);
-                            localTimeElement.textContent = localTimeString;
-                        }
-                    }
-
-                    // Initially, update the local time
-                    updateLocalTime();
-
-                    // Set up an interval to update the local time every second
-                    setInterval(updateLocalTime, 1000);
-                }
-
-                window.onload = setBackground;
-
-                        </script>
-                        </ul> 
-                    </div>
-                </div>
-                <div class="card" id="normalmode3">
-                    <div class="card-title">@j2sh > Random</div>
-                        <div class="about-me">
-                            <div class="bio">
-                                <button class="button" onclick='window.location.href = "https://f8.lol";'>1</button>
-                                <button class="button" onclick='window.location.href = "https://f8.lol";'>2</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- ABOUT ME CARD -->
+      <div class="relative col-span-3 aspect-square md:aspect-auto md:row-span-2 bg-[#af72ff56] rounded-3xl overflow-hidden">
+        <div class="AboutCard"></div>
+        <div class="h-full md:w-8/12 absolute top-0 left-0 p-4 md:p-8 flex flex-col justify-start  md:justify-end">
+          <h1 class="text-3xl md:text-xl lg:text-5xl font-bold text-white mb-4 md:mb-5">
+            👋 <!-- -->Hi, I'm<!-- --> Josh N
+          </h1>
+          <p class="text-md md:text-lg lg:text-2xl text-white">
+            I am an <b>amateur developer</b> with experience in <b>Python</b>. I'm also alright at <b>LUA</b>, <b>HTML</b>, <b>CSS</b>, as well as<!-- --> 
+            <b>JavaScript</b>. <span id="local-time"></span> I love collecting rare things! 
+          </p>
         </div>
-    </div>
+      </div>
+
+
+      <!-- YEARS CARD -->
+      <div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#ff4848d3] p-4 justify-center items-center">
+        <div class="">
+          <div class="flex justify-center items-center flex-col">
+            <p class="text-xs md:text-lg uppercase font">age</p>
+            <p class="text-4xl md:text-8xl font-bold">19</p>
+            <p class="text-xs md:text-xl uppercase font-semibold text-center">years old</p>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- YOUTUBE BUTTON -->
+
+  <a href="https://youtube.com/@j2shy" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex flex-col justify-center items-center bg-red-500 rounded-3xl relative overflow-hidden col-span-1 aspect-square cursor-pointer scale transition duration-300 ease-in-out">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" class="text-4xl md:text-7xl lg:text-9xl text-white" height="1em" width="2em">
+        <path d="M32 4.033c-15.535 0-28.178 12.64-28.178 28.178S16.465 60.39 32 60.39s28.178-12.64 28.178-28.178S47.535 4.033 32 4.033zm-4.42 43.8V16.17l20.672 15.332-20.672 16.332z" fill="#fff"></path>
+    </svg>
+  </a>
+
+      <!-- INSTAGRAM BUTTON -->
+      <a href="https://www.instagram.com/yf2" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex flex-col justify-center items-center bg-[#49d5ff56] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
+        </svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" class="text-4xl md:text-7xl lg:text-9xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">>
+          <path d="M44.122 2H19.87A17.875 17.875 0 0 0 2 19.835v24.2a17.875 17.875 0 0 0 17.87 17.834h24.252A17.875 17.875 0 0 0 62 44.034v-24.2A17.875 17.875 0 0 0 44.122 2zM55.96 44.034a11.825 11.825 0 0 1-11.838 11.812H19.87A11.825 11.825 0 0 1 8.032 44.034v-24.2A11.825 11.825 0 0 1 19.87 8.022h24.252A11.825 11.825 0 0 1 55.96 19.835zm0 0" fill="none" stroke="#ffffffaa" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5" stroke-linejoin="round"></path>
+          <path data-name="layer1" d="M32 16.45a15.484 15.484 0 1 0 15.514 15.484A15.519 15.519 0 0 0 32 16.45zm0 24.95a9.461 9.461 0 1 1 9.482-9.461A9.472 9.472 0 0 1 32 41.4zm19.263-24.834a3.719 3.719 0 1 1-3.719-3.711 3.714 3.714 0 0 1 3.719 3.711zm0 0" fill="none" stroke="#ffffffaa" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+
+      <!-- EMAIL BUTTON -->
+      <a href="mailto:bigbootylatinas@aol.com" target="_blank" rel="noopener noreferrer" aria-label="Email" class="flex flex-col justify-center items-center bg-[#7785ff56] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
+        </svg>
+        
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-4xl md:text-7xl lg:text-9xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+        </svg>
+      </a>
+
+      <!-- GITHUB BUTTON -->
+      <a href="https://github.com/j2shy" target="_blank" rel="noopener noreferrer" class=" rounded-3xl col-span-2 overflow-hidden cursor-pointer scale transition duration-300 ease-in-out">
+        <div class="relative w-full h-full p-4 md:p-8 bg-[#00000077]">
+          <img alt="" loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" srcset="https://cdn.discordapp.com/attachments/1082491639395795034/1160423859036639313/pokemon-ash.gif?ex=65349bef&is=652226ef&hm=86c809e34fe1f39c7cf6289879ea67e009531ebb3da58510b19e816b79f5dfb2&" src="https://cdn.discordapp.com/attachments/1082491639395795034/1160423859036639313/pokemon-ash.gif?ex=65349bef&is=652226ef&hm=86c809e34fe1f39c7cf6289879ea67e009531ebb3da58510b19e816b79f5dfb2&">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" d="M0 0h24v24H0z"></path>
+            <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
+          </svg>
+          
+          <div class="w-full h-full flex flex-col justify-between z-10">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="white" class="text-xs md:text-5xl hidden md:flex" style="color:white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <title></title>
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+            </svg>
+            
+            <div class="">
+              <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
+              <p class="text-white text-sm md:text-md lg:text-2xl">My Github profile, where I upload my projects.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+      <!-- MY Discord CARD -->
+      <a class="relative rounded-3xl col-span-2 md:aspect-auto overflow-hidden scale transition duration-500 ease-in-out" href="https://discord.com/users/277674827215536129/" target="_blank">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white text-[#ffffffaa] z-10 text-4xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+        </svg>
+        <div class="w-full h-full absolute top-0 left-0 text-white p-4 md:p-8 z-10 pointer-events-none">
+          <h2 class="font-bold text-md md:text-xl lg:text-4xl"></h2>
+          <p class="font-base text-xs md:text-2xl lg:text-2xl md:w-4/5 lg:w-5/6 lg:mt-4"></p>
+        </div>
+        <div class="w-full h-full bg-[#af72ff56] absolute">
+          <img alt="" loading="lazy" width="480" height="480" decoding="async" data-nimg="1" class="w-full h-full object-cover opacity-40" style="color:transparent" srcset="https://lanyard.cnrad.dev/api/277674827215536129" src="https://lanyard.cnrad.dev/api/277674827215536129">
+        </div>
+      </a>
+
+
+
+
+
+      <!-- ROBLOX BUTTON -->
+      <a href="https://www.roblox.com/users/4327514471/profile" target="_blank" rel="noopener noreferrer" class="rounded-3x4 flex flex-col col-span-1 relative overflow-hidden aspect-square justify-center items-center">
+        <img src="https://tr.rbxcdn.com/15DAY-Avatar-BA4D69C47612343E4F1A2C17358217B7-Png/352/352/Avatar/Png/noFilter" class="w-full h-full object-cover" alt="me">
+        <div class="">
+          <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">@cue</h2>
+          <p class="text-white text-sm md:text-md lg:text-2xl">My Roblox profile</p>
+        </div>
+    </a>
+
+      
+      <!-- ROBLOX BUTTON -->
+      <a href="https://www.roblox.com/users/4348236369/profile" target="_blank" rel="noopener noreferrer" class="rounded-3x4 flex flex-col col-span-1 relative overflow-hidden aspect-square justify-center items-center">
+        <img src="https://tr.rbxcdn.com/15DAY-Avatar-CE4DB5C6B0DBB3296410B9F51DA8B3DC-Png/352/352/Avatar/Png/noFilter" class="w-full h-full object-cover" alt="me">
+        <div class="">
+          <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">@AshKetchum</h2>
+          <p class="text-white text-sm md:text-md lg:text-2xl">My Roblox profile</p>
+        </div>
+    </a>
+
+    </div>  
+  </div>
+    
+    
 </body>
 </html>
