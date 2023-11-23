@@ -32,6 +32,33 @@
     font-family: 'Poppins', sans-serif;
 		}
 
+		body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Update this class to use flexbox */
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    body {
+        padding: 10px; /* Example padding adjustment */
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Adjust grid for smaller screens */
+        gap: 10px; /* Adjust gap between grid items */
+    }
+}
+
+
   </style>
 
 		<!-- <div class="noise"></div> -->
@@ -247,36 +274,7 @@
 				
 
 
-				<!-- EMAIL BUTTON -->
-				<a href="mailto:aids@hotmail.com" target="_blank" rel="" aria-label="Email" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-					<svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" class="text-4xl md:text-7xl lg:text-9xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-					</svg>
-					<div class="flex justify-center items-center flex-col">
-						<p class="text-xs md:text-xl font- text-center">aids@hotmail.com</p>
-					</div>
-				</a>
 
-
-				<!-- EMAIL BUTTON -->
-				<a href="mailto:aids@hotmail.com" target="_blank" rel="" aria-label="Email" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-					<svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" class="text-4xl md:text-7xl lg:text-9xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-					</svg>
-					<div class="flex justify-center items-center flex-col">
-						<p class="text-xs md:text-xl font- text-center">aids@hotmail.com</p>
-					</div>
-				</a>
 
 				<!-- MY GYAT CARD -->
 				<a class="relative rounded-3xl col-span-2 md:aspect-auto overflow-hidden scale transition duration-500 ease-in-out" href="" target="_blank">
@@ -323,47 +321,7 @@
 					</div>
 				</a>
 
-								
-				<!-- 
-				<a href="/" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
-					
-					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-				</a>
 				
-				
-				<a href="/" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
-					
-					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-				</a>
-				
-				
-				<a href="/" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
-					
-					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-				</a>
-				
-				
-				<a href="/" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
-					
-					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-					</svg>
-				</a>
-			-->
 		</div>
 	</body>
 </html>
