@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script>
+    <!--========== BOX ICONS ==========-->
+    <link href="css/boxicons.min.css" rel="stylesheet">
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--========== Favicon ==========-->
+    <link rel="icon" type="image/png" href="images/RfQ1Sa3.png">
+
+    <!--========== Twitter Card ==========-->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1082491639395795034/1160426681169891409/code.png?ex=65349e90&amp;is=65222990&amp;hm=16a7370edc8ea6069621e02b7eedbef908fbeb0c3f888aa20dacbb23cfb4cb58&amp;">
+
+    <!--========== Discord Rich Presence ==========-->
+    <meta property="og:image" content="https://media.discordapp.net/attachments/966043517346541578/1073154262353334302/ezgif-5-43ee149553.gif">
+    <meta property="og:url" content="https://f8.lol/@">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <meta property="og:title" content="Portfolio site">
+
+    <!--========== Couleur personnalisée ==========-->
+    <meta name="theme-color" content="#2b2d31">
+
+    <title>Josh</title>
+
+    <!--========== CSS personnalisé pour l'image ==========-->
+    <style>
+        .thumbnail {
+            max-width: 200px; /* Définissez la largeur maximale souhaitée pour la miniature */
+        }
+    </style>
+</head>
+    <body>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class="bx bx-chevron-up scrolltop__icon"></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Josh</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="" class="nav__link active-link">home</a></li>
+                        <li class="nav__item"><a href="mailto:aids@hotmail.com" class="nav__link active-link">email</a></li>
+                        <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="bx bx-menu"></i>
+                </div>
+            </nav>
+        </header>
+
+      
+
+
+
+            
+            <!--========== ABOUT ==========-->
+            <section class="about section bd-container" id="information">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">I'm a budding developer </span>
+                        <h2 class="section-title about__initial">Joshua <br>Nguyen </h2>
+                        <p class="about__description">proficient in Python and has a strong foundation in LUA, HTML, CSS, as well as JavaScript. In addition to my love of coding, I have an intense interest in collecting rare and neat assets.</p>
+                        <a href="https://github.com/j2shy" class="button">More Info</a>
+                    </div>
+
+                    <style>
+                        @keyframes bobbing-animation {
+                            0% {
+                            transform: translateY(0);
+                            }
+                            50% {
+                            transform: translateY(-10px);
+                            }
+                            100% {
+                            transform: translateY(0);
+                            }
+                        }
+                        
+                        #bobbing-image {
+                            animation: bobbing-animation 2s ease-in-out infinite;
+                        }
+                        </style>
+
+                    <img id="bobbing-image" src="https://lanyard.cnrad.dev/api/277674827215536129?:theme=dark" alt class="about__img">
+                </div>
+            </section>
+
+
+            
+
+            <!--========== MENU ==========-->
+            <section class="menu section bd-container" id="partenaire">
+                <span class="section-subtitle">Play with me</span>
+                <h2 class="section-title">My Accounts</h2>
+
+                <div class="menu__container bd-grid">
+                    <div class="menu__content">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-E0607BCC84E47C73638D37C47D419D58-Png/150/150/AvatarHeadshot/Png/noFilter" alt class="menu__img">
+                        <h3 class="menu__name">cue</h3>
+                        <span class="menu__detail">@cue</span>
+                        <span class="menu__preci"></span>
+                        <a href="https://www.roblox.com/users/4327514471/profile" class="button menu__button"><i class="bx bx-run"></i></a>
+                    </div>
+
+                    <div class="menu__content">
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-45544C0935F2986B3AFEB9115A108D08-Png/150/150/AvatarHeadshot/Png/noFilter" alt class="menu__img">
+                        <h3 class="menu__name">AshKetchum</h3>
+                        <span class="menu__detail">@AshKetchum</span>
+                        <span class="menu__preci"></span>
+                        <a href="https://www.roblox.com/users/4348236369/profile" class="button menu__button"><i class="bx bx-run"></i></a>
+                    </div>
+                    
+                    <div class="menu__content">
+                        <img src="https://cdn.discordapp.com/attachments/1082491639395795034/1177149985771503697/Untitled-1.png?ex=6571755a&is=655f005a&hm=d0f072e8ba9572cfe97fe51423a291b31756b2dfb33092d1660b6302165de79f&" alt class="menu__img">
+                        <h3 class="menu__name">Vow</h3>
+                        <span class="menu__detail">@Vow</span>
+                        <span class="menu__preci"></span>
+                        <a href="https://namemc.com/profile/Vow" class="button menu__button"><i class="bx bx-run"></i></a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--========== SERVICES ==========-->
+            <section class="services section bd-container" id="avantage">
+                <span class="section-subtitle">More About Me</span>
+                <h2 class="section-title">What am I like?</h2>
+
+                <div class="services__container  bd-grid">
+                    <div class="services__content">
+                        <h3 class="services__title">Tech Enthusiast</h3>
+                        <p class="services__description">At the intersection of innovation and technology resides, I'm a fervent advocate for the latest advancements. From coding minecraft bots to figuring out the intricacies of AI , I'm on a perpetual quest to stay at the forefront of the digital world.</p>
+                    </div>
+
+                    <div class="services__content">
+                        <h3 class="services__title">Collector of Sorts</h3>
+                        <p class="services__description">A collector with an eye for things hard to get. I collect unique, rare, usernames in the digital realm and rare license plates in the physical world.</p>
+                    </div>
+
+                    <div class="services__content">
+                        <h3 class="services__title">Personal Facts</h3>
+                        <p class="services__description">I used to sell Roblox hacks.</p>
+                        <p class="services__description">6'2.. cough cough</p>
+                        <p class="services__description">Vietnamese.</p>
+                        <p class="services__description">Addicted to minecraft.</p>
+                    </div>
+                </div>
+            </section>
+
+
+    
+<style>
+    /* Add these styles to your existing CSS file */
+
+/*========== Messaging Styles ==========*/
+
+.messages__container {
+  display: flex;
+  justify-content: center;
+}
+
+.messages__content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.messages__title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#message-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#message-input:focus {
+  outline: none;
+  border-color: #8ac6d1;
+}
+
+.button {
+  display: inline-block;
+  background-color: #8ac6d1;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #6baebd;
+}
+
+</style>
+
+        </main>
+
+        <!--========== FOOTER ==========-->
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="f8.lol/josh" class="footer__logo">f8.lol/josh</a>
+                    <span class="footer__description">Contacts</span>
+                    <div>
+                        <a href="https://instagram.com/yf2" class="footer__social"><i class="bx bxl-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Donate</h3>
+                    <ul>
+                        <li><a href="https://ko-fi.com/j2shua" class="footer__link">ko-fi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Information</h3>
+                    <ul>
+                        <li><a href="https://github.com/j2shy" class="footer__link">Github</a></li>
+                        <li><a href="https://f8.lol/" class="footer__link">Other Webpage</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact</h3>
+                    <ul>
+                        <li>Discord - j2sh</li>
+                        <li>Email - aids@hotmail.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer__copy">© 2023 f8.lol</p>
+        </footer>
+
+        <!--========== MAIN JS ==========-->
+        <script src="js/main.js"></script>
+    
+
+</body></html>
