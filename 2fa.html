@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: dark;">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+
+	<head>
+		
+		<!-- Google tag (gtag.js) -->
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1D2RVLPFVH"></script>
+		<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1D2RVLPFVH');
+  
+		</script>
+		<title>Josh | 2FA</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1082491639395795034/1160426681169891409/code.png?ex=65349e90&amp;is=65222990&amp;hm=16a7370edc8ea6069621e02b7eedbef908fbeb0c3f888aa20dacbb23cfb4cb58&amp;">
+		
+		<script disable-devtool-auto="" src="https://f8.lol/dev-blocker"></script> 
+	</head>
+
+
+
+
+<!-- 2FA JS -->
+<script src="js/jsOTP.min.js"></script>
+<script>
+	var epoch_server = 1701214519062;
+	var epoch_client = new Date().getTime();
+	var epoch_diff = epoch_server - epoch_client; //IF POSITIVE, CLIENT BEHIND
+
+	function getEpoch() {
+		return (new Date().getTime())+epoch_diff;
+	}
+
+	function isValid(secret) {
+		return /^[a-z0-9]{16}$/g.test(secret)
+	}
+
+	function get2FASecretKey() {
+		return document.getElementById("secret").value.replace(/[^a-z0-9]/g, '');
+	}
+
+	function update2FACode(secret, epoch) {
+		var totp = new jsOTP.totp();
+		var code = totp.getOtp(secret, epoch);
+		var remaining = 30 - (Math.round(getEpoch()/1000)%30)
+
+		var result = document.getElementById("code")
+		var info = document.getElementById("info")
+
+		if (result.innerHTML != code) result.innerHTML = code;
+		result.style.color = (remaining <= 5 ? "#b00" : "inherit");
+		info.innerHTML = "New code in "+remaining+" second"+(remaining > 1 ? "s" : "")+".";
+	}
+
+	function copyCode() {
+		var text = document.createElement('textarea');
+		text.value = document.getElementById("code").innerHTML
+		document.body.appendChild(text)
+		text.select()
+		document.execCommand('copy');
+		document.body.removeChild(text);
+	}
+
+	function check() {
+		var secret = get2FASecretKey()
+		var div_ids = ["code", "info", "copy"]
+		if (isValid(secret)) {
+			update2FACode(secret, getEpoch());
+			div_ids.forEach(id => document.getElementById(id).style.display = "inherit");
+		} else if (secret == "") {
+			div_ids.forEach(id => document.getElementById(id).style.display = "none");
+		} else {
+			div_ids.forEach(id => document.getElementById(id).style.display = "none");
+			document.getElementById("info").style.display = "inherit"
+			document.getElementById("info").innerHTML = "Invalid secret key.<br>It must be 16 characters long, only containing a-z and 0-9."
+		}
+	}
+
+	setTimeout(function() {
+		setInterval(function() {
+			var secret = get2FASecretKey()
+			if (isValid(secret)) update2FACode(secret, getEpoch());
+		}, 1000);
+	}, 1000-new Date().getMilliseconds())
+</script>
+
+
+
+	<body>
+    <style>
+      body {
+          background-color: #161616; 
+      }
+
+	  body, h1, p, a {
+    font-family: 'Poppins', sans-serif;
+		}
+
+  </style>
+
+
+		<!-- <div class="noise"></div> -->
+		<div class="flex flex-col m-5" style="opacity: 1; transform: none;">
+			<div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-4 my-5 container mx-auto xl:px-20">
+				
+
+
+
+
+<!-- ABOUT ME CARD -->
+<div class="relative col-span-3 aspect-square md:aspect-auto md:row-span-2 bg-[#00000077] rounded-3xl rounded-3xl overflow-hidden">
+	<div class="AboutCard"></div>
+    <div class="h-full md:w-8/12 absolute top-0 left-0 p-4 md:p-8 flex flex-col justify-start  md:justify-end">
+        <h1 class="text-3xl md:text-xl lg:text-5xl font- text-white mb-4 md:mb-5">
+            🛡️
+            <!-- -->2FA
+            <!-- --> Authentication
+        </h1>
+        <p class="text-md md:text-lg lg:text-2xl text-white">
+            Secure Your Account:
+            <b> </b>
+            <b> </b>
+            <!-- -->
+            <b> </b>
+
+			<label for="secret"><b>2FA Secret Key</b></label><br>
+			<input type="password" id="secret" placeholder="xxxx xxxx xxxx xxxx" oninput="check();" autofocus="" style="margin-bottom: 30px; width: 300px; height: 40px;" autocomplete="off"><br>
+
+			<h3 id="code" style="float:left;margin-right:10px;"></h3>
+			<p id="info" style="clear:both;"></p>
+        </p>
+    </div>
+</div>
+
+<!-- JavaScript code (assuming you have a check() function) -->
+<script>
+    function check() {
+        // Your logic to update code and info elements based on the input
+        // Example:
+        var secretInput = document.getElementById("secret").value;
+        // Update code and info elements accordingly
+        // document.getElementById("code").innerText = someValue;
+        // document.getElementById("info").innerText = someInfo;
+    }
+</script>
+
+
+
+				
+        				<!-- YEARS CARD -->
+				<div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#00000077] p-4 justify-center items-center">
+					<div class="">
+						<div class="flex justify-center items-center flex-col">
+							<p class="text-xs md:text-lg font">flipd.gg/</p>
+							<p class="text-4xl md:text-8xl font-">Y5</p>
+							<p class="text-xs md:text-xl uppercase font- text-center">love u</p>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				
+				
+
+				<script>
+        // Function to update the local time in EST
+        function updateLocalTime() {
+          let now = new Date();
+      
+          // Update the first local time element
+          let localTimeElement1 = document.getElementById('local-time-1');
+          if (localTimeElement1) {
+            let options = {
+              hour: 'numeric',
+              minute: 'numeric',
+              second: 'numeric',
+              hour12: true,
+              timeZone: 'America/New_York' // Set the timezone to EST
+            };
+            let localTimeString1 = now.toLocaleString('en-US', options);
+            localTimeElement1.textContent = localTimeString1;
+          }
+      
+        }
+      
+        // Initially, update the local time
+        updateLocalTime();
+      
+        // Set up an interval to update the local time every second
+        setInterval(updateLocalTime, 1000);
+      
+				</script>
+				
+				<!-- LOCAL TIME CARD -->
+				<div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#00000077] p-4 justify-center items-center">
+					
+					<!-- Change the IDs of the local time elements -->
+					<div class="flex justify-center items-center flex-col">
+						<p class="text-xs md:text-xl uppercase font- text-center">
+							<span id="local-time-1"></span>
+						</p>
+					</div>
+				</div>
+				
+						<!-- Cashapp BUTTON -->
+						<a href="https://cash.app/$j2shn" target="_blank" rel="" aria-label="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
+							<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+								<path fill="none" d="M0 0h24v24H0z"></path>
+								<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
+							</svg>
+							<img src="https://cdn.discordapp.com/attachments/503587967709741219/1163229390734377070/Untitledasfasfasfasfa-1.png?ex=653ed0ca&amp;is=652c5bca&amp;hm=11d2ec71376f00563bf9eb4a5fd4417dc51077d4be6262033aaaaaf540bc2a34&amp;" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
+						</a>
+						
+				<!-- MY Discord CARD -->
+				<a class="relative rounded-3xl col-span-2 md:aspect-auto overflow-hidden scale transition duration-500 ease-in-out" href="https://discord.com/users/277674827215536129/" target="_blank">
+					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white text-[#ffffffaa] z-10 text-4xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+					</svg>
+					<div class="w-full h-full absolute top-0 left-0 text-white p-4 md:p-8 z-10 pointer-events-none">
+						<h2 class="font- text-md md:text-xl lg:text-4xl"></h2>
+						<p class="font- text-xs md:text-2xl lg:text-2xl md:w-4/5 lg:w-5/6 lg:mt-4"></p>
+					</div>
+					<div class="w-full h-full bg-[#00000077] absolute">
+						<img alt="" loading="lazy" width="480" height="480" decoding="async" data-nimg="1" class="w-full h-full object-cover opacity-0" style="color:transparent" srcset="https://lanyard.cnrad.dev/api/277674827215536129?bg=:" src="https://lanyard.cnrad.dev/api/277674827215536129?bg=:">
+					</div>
+				</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+	</body>
+</html>
