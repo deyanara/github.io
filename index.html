@@ -12,8 +12,39 @@
     gtag('js', new Date());
 
     gtag('config', 'G-1D2RVLPFVH');
-  
 		</script>
+
+	<script>
+        // Function to update the local time in EST
+        function updateLocalTime() {
+          let now = new Date();
+      
+          // Update the first local time element
+          let localTimeElement1 = document.getElementById('local-time-1');
+          if (localTimeElement1) {
+            let options = {
+              hour: 'numeric',
+              minute: 'numeric',
+              second: 'numeric',
+              hour12: true,
+              timeZone: 'America/New_York' // Set the timezone to EST
+            };
+            let localTimeString1 = now.toLocaleString('en-US', options);
+            localTimeElement1.textContent = localTimeString1;
+          }
+      
+        }
+      
+        // Initially, update the local time
+        updateLocalTime();
+      
+        // Set up an interval to update the local time every second
+        setInterval(updateLocalTime, 1000);
+      
+	</script>
+
+
+		
 		<title>Josh | 🖤</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +74,8 @@
 					<div class="AboutCard"></div>
 					<div class="h-full md:w-8/12 absolute top-0 left-0 p-4 md:p-8 flex flex-col justify-start  md:justify-end">
 						<h1 class="text-3xl md:text-xl lg:text-5xl font- text-white mb-4 md:mb-5">
-							👨‍💻
-							<!-- -->Hiya, I'm
+							
+							<!-- -->I'm
 							<!-- --> Josh
 						</h1>
 						
@@ -64,17 +95,20 @@
 							<b>JavaScript</b>. In addition to my love of coding, I have an intense interest in collecting 
 							rare and neat assets.			
 						</p>
+
+
 					</div>
 				</div>
 				
-        				<!-- YEARS CARD -->
+        				<!-- Discord CARD -->
 				<div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#00000077] p-4 justify-center items-center">
+					<div class="AboutCard"></div>
 					<div class="">
-						<div class="flex justify-center items-center flex-col">
-							<p class="text-xs md:text-lg font">age</p>
-							<p class="text-4xl md:text-8xl font-">19</p>
-							<p class="text-xs md:text-xl uppercase font- text-center">years old</p>
-						</div>
+						<div class="w-1/3 h-1/3 md:w-2/12 md:h-2/12 order-2">
+							<a href="https://discord.com/users/277674827215536129/">
+								<img alt="" loading="lazy" class="w-full h-full object-cover opacity-0" style="color:transparent" srcset="https://lanyard.cnrad.dev/api/277674827215536129?bg=:" src="https://lanyard.cnrad.dev/api/277674827215536129?bg=:">
+							</a>
+						</div>						
 					</div>
 				</div>
 
@@ -84,61 +118,75 @@
 						<path fill="none" d="M0 0h24v24H0z"></path>
 						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
 					</svg>
+					
 					<img src="https://cdn.discordapp.com/attachments/503587967709741219/1163229390734377070/Untitledasfasfasfasfa-1.png?ex=653ed0ca&amp;is=652c5bca&amp;hm=11d2ec71376f00563bf9eb4a5fd4417dc51077d4be6262033aaaaaf540bc2a34&amp;" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
 				</a>
 				
         		<!-- MINECRAFT BUTTON -->
 				<a href="https://namemc.com/profile/Vow.1" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="https://cdn.discordapp.com/attachments/1082491639395795034/1177149985771503697/Untitled-1.png?ex=6571755a&is=655f005a&hm=d0f072e8ba9572cfe97fe51423a291b31756b2dfb33092d1660b6302165de79f&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
+					<img alt="" loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" srcset="https://cdn.discordapp.com/attachments/503587967709741219/1179923442380849233/R.png?ex=657b8c56&is=65691756&hm=64b70923afc0f0c42f3d5409654f1297f6d2d7c03d45307608825f72fff688b3&" src="https://cdn.discordapp.com/attachments/503587967709741219/1179923442380849233/R.png?ex=657b8c56&is=65691756&hm=64b70923afc0f0c42f3d5409654f1297f6d2d7c03d45307608825f72fff688b3&">
+					<img src="https://cdn.discordapp.com/attachments/1082491639395795034/1177149985771503697/Untitled-1.png?ex=6571755a&is=655f005a&hm=d0f072e8ba9572cfe97fe51423a291b31756b2dfb33092d1660b6302165de79f&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="100" height="100">
 					<p class="text-xs md:text-xl font- text-center">Vow</p>
 					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 						<path fill="none" d="M0 0h24v24H0z"></path>
 						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
 					</svg>
+					
 				</a>
 
 				
-				
 
-				<script>
-        // Function to update the local time in EST
-        function updateLocalTime() {
-          let now = new Date();
-      
-          // Update the first local time element
-          let localTimeElement1 = document.getElementById('local-time-1');
-          if (localTimeElement1) {
-            let options = {
-              hour: 'numeric',
-              minute: 'numeric',
-              second: 'numeric',
-              hour12: true,
-              timeZone: 'America/New_York' // Set the timezone to EST
-            };
-            let localTimeString1 = now.toLocaleString('en-US', options);
-            localTimeElement1.textContent = localTimeString1;
-          }
-      
-        }
-      
-        // Initially, update the local time
-        updateLocalTime();
-      
-        // Set up an interval to update the local time every second
-        setInterval(updateLocalTime, 1000);
-      
-				</script>
 				
-				<!-- LOCAL TIME CARD -->
-				<div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#00000077] p-4 justify-center items-center">
-					
-					<!-- Change the IDs of the local time elements -->
-					<div class="flex justify-center items-center flex-col">
-						<p class="text-xs md:text-xl uppercase font- text-center">
-							<span id="local-time-1"></span>
-						</p>
-					</div>
-				</div>
+<!-- LOCAL TIME CARD -->
+<div class="text-white rounded-3xl flex flex-col col-span-1 relative overflow-hidden aspect-square shadow-sm bg-[#00000077] p-4 justify-center items-center">
+	<!-- Change the IDs of the local time elements -->
+	<div class="relative">
+	  <canvas
+		id="cobe"
+		style="width: 200px; height: 200px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+		width="200"
+		height="200"
+	  ></canvas>
+	  <p class="text-xs md:text-xl uppercase font-absolute text-center" style="position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);"><span id="local-time-1"></span>
+	  </p>
+	</div>
+	<script type="module">
+	  import createGlobe from 'https://cdn.skypack.dev/cobe'
+  
+	  let phi = 0
+	  let canvas = document.getElementById("cobe")
+  
+	  const globe = createGlobe(canvas, {
+		devicePixelRatio: 2,
+		width: 200,
+		height: 200,
+		phi: 0,
+		theta: 0,
+		dark: 0,
+		diffuse: 1.2,
+		scale: 1,
+		mapSamples: 16000,
+		mapBrightness: 2,
+		baseColor: [1, 1, 1],
+		markerColor: [1, 0.5, 1],
+		glowColor: [1, 1, 1],
+		offset: [200, -250], // Center the globe
+		markers: [
+		  { location: [37.7595, -122.4367], size: 0.03 },
+		  { location: [40.7128, -74.006], size: 0.1 },
+		],
+		onRender: (state) => {
+		  // Called on every animation frame.
+		  // `state` will be an empty object, return updated params.
+		  state.phi = phi
+		  phi += 0.01
+		},
+	  })
+	</script>
+  </div>
+  
+  
+  
 				
 				<!-- GITHUB BUTTON -->
 				<a href="https://github.com/j2shy" target="_blank" rel="noopener noreferrer" class=" rounded-3xl col-span-2 overflow-hidden cursor-pointer scale transition duration-300 ease-in-out">
@@ -161,7 +209,8 @@
 					</div>
 				</a>
 				
-				<!-- MY Discord CARD -->
+				<!--
+				
 				<a class="relative rounded-3xl col-span-2 md:aspect-auto overflow-hidden scale transition duration-500 ease-in-out" href="https://discord.com/users/277674827215536129/" target="_blank">
 					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-white text-[#ffffffaa] z-10 text-4xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
@@ -174,33 +223,35 @@
 						<img alt="" loading="lazy" width="480" height="480" decoding="async" data-nimg="1" class="w-full h-full object-cover opacity-0" style="color:transparent" srcset="https://lanyard.cnrad.dev/api/277674827215536129?bg=:" src="https://lanyard.cnrad.dev/api/277674827215536129?bg=:">
 					</div>
 				</a>
-				
+				-->
 
 				<!-- ROBLOX BUTTON -->
 				<a href="https://www.roblox.com/users/4327514471/profile" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="https://cdn.discordapp.com/attachments/1162539563386949653/1162601591749218364/noFilter.png?ex=653c881b&amp;is=652a131b&amp;hm=d374c813851643a301dcb8a85a13ddeaf9da6e3bafb3f352f96f5ad34ed09821&amp;" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
+					<img alt="" loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" srcset="https://cdn.discordapp.com/attachments/503587967709741219/1179918378085920828/17b267e49306cfff528560d044e1b7ab.png?ex=657b879f&is=6569129f&hm=e5a2c72ba47c9cdc9d8c82241521e3136dc453ab34a1fbecb2a0179280f640ed&" src="https://cdn.discordapp.com/attachments/503587967709741219/1179918378085920828/17b267e49306cfff528560d044e1b7ab.png?ex=657b879f&is=6569129f&hm=e5a2c72ba47c9cdc9d8c82241521e3136dc453ab34a1fbecb2a0179280f640ed&">
+					<img src="https://cdn.discordapp.com/attachments/503587967709741219/1179922842754744450/noFilter.png?ex=657b8bc7&is=656916c7&hm=930ed3d7f7807861535a4fc93cdc73b35d8360c6fa5b5fcd2e57e3ce874aabee&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="100" height="100">
 					<p class="text-xs md:text-xl font- text-center">@cue</p>
+					
 					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 						<path fill="none" d="M0 0h24v24H0z"></path>
 						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
 					</svg>
 				</a>
-				
 				<!-- ROBLOX BUTTON -->
 				<a href="https://www.roblox.com/users/4348236369/profile" target="_blank" rel="" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out">
-					<img src="https://cdn.discordapp.com/attachments/1162539563386949653/1162601508861399151/noFilter.png?ex=653c8807&amp;is=652a1307&amp;hm=0480c9dcdef1857ea653604f0b2a1939119bcc0f62c11ca1fed013c05a36bacb&amp;" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="150" height="150">
+					<img alt="" loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" srcset="https://cdn.discordapp.com/attachments/503587967709741219/1179919570472026152/wp7885532.png?ex=657b88bb&is=656913bb&hm=44703e0670cc13529602bd10b07756248500cd40fa0ce8a4178987f398bb9af6&" src="https://cdn.discordapp.com/attachments/503587967709741219/1179919570472026152/wp7885532.png?ex=657b88bb&is=656913bb&hm=44703e0670cc13529602bd10b07756248500cd40fa0ce8a4178987f398bb9af6&">
+					<img src="https://cdn.discordapp.com/attachments/503587967709741219/1179922812455104595/noFilter.png?ex=657b8bc0&is=656916c0&hm=da44470f385a850a2c60d3038fc7acf4b974fe0879a796b57f6a16a154e73c5c&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="100" height="100">
 					<p class="text-xs md:text-xl font- text-center">@AshKetchum</p>
+					
 					<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="absolute right-4 bottom-4 top-auto md:right-8 md:top-8 text-xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 						<path fill="none" d="M0 0h24v24H0z"></path>
 						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
 					</svg>
 				</a>
+
 				
 				<!-- YOUTUBE BUTTON -->
 				<a href="https://youtube.com/@j2shy" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex flex-col justify-center items-center bg-[#00000077] rounded-3xl relative overflow-hidden col-span-1 aspect-square cursor-pointer scale transition duration-300 ease-in-out">
-					<svg xmlns="http://www.w3.org/2000/svg" width="159" height="159" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-						<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z"/>
-					  </svg>
+					<img src="https://cdn.discordapp.com/attachments/503587967709741219/1179928975062085704/image.png?ex=657b917d&is=65691c7d&hm=0aada3d62b5f1c187062d117437dac77b1d0398170b57eb5ffdf4d5ab4ade33a&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="100" height="100">
 					
 					<div class="flex justify-center items-center flex-col">
 						<p class="text-xs md:text-xl font- text-center">@j2shy</p>
@@ -235,13 +286,10 @@
 						<path fill="none" d="M0 0h24v24H0z"></path>
 						<path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
 					</svg>
-					<svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" class="text-4xl md:text-7xl lg:text-9xl text-white text-[#ffffffaa]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-						<path fill="none" d="M0 0h24v24H0z"></path>
-						<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-					</svg>
+					<img src="https://cdn.discordapp.com/attachments/503587967709741219/1179929137868197978/image.png?ex=657b91a4&is=65691ca4&hm=d879a409c1ba204185dcd776fa456a0bdc3fcb7dd41403be724bbe4223d29655&" class="flex flex-col justify-center items-center rounded-3xl relative overflow-hidden col-span-1 aspect-square shadow-sm cursor-pointer scale transition duration-300 ease-in-out" alt="me" width="100" height="100">
+					
 					<div class="flex justify-center items-center flex-col">
-						<p class="text-xs md:text-xl font- text-center">aids</p>
-						<p class="text-xs md:text-xl font- text-center">@hotmail.com</p>
+						<p class="text-xs md:text-xl font- text-center">aids@hotmail</p>
 					</div>
 				</a>
 
