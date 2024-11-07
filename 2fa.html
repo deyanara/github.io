@@ -107,14 +107,6 @@
     <!-- JavaScript for 2FA -->
     <script src="js/jsOTP.min.js"></script>
     <script>
-        var epochServer = 1730958872042;
-        var epochClient = new Date().getTime();
-        var epochDiff = epochServer - epochClient;
-
-        function getEpoch() {
-            return new Date().getTime() + epochDiff;
-        }
-
         function isValid(secret) {
             return /^[a-z0-9]{16}$/i.test(secret);
         }
@@ -123,17 +115,16 @@
             return document.getElementById("secret").value.replace(/[^a-z0-9]/gi, '');
         }
 
-        function update2FACode(secret, epoch) {
+        function update2FACode(secret) {
+            if (!secret) return;
+
             var totp = new jsOTP.totp();
-            var code = totp.getOtp(secret, epoch);
-            var remaining = 30 - (Math.round(getEpoch() / 1000) % 30);
+            var code = totp.getOtp(secret);
+            var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
 
-            var result = document.getElementById("code");
-            var info = document.getElementById("info");
-
-            if (result.innerHTML !== code) result.innerHTML = code;
-            result.style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
-            info.innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
+            document.getElementById("code").innerHTML = code;
+            document.getElementById("code").style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
+            document.getElementById("info").innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
         }
 
         function copyCode() {
@@ -148,7 +139,7 @@
         function check() {
             var secret = get2FASecretKey();
             if (isValid(secret)) {
-                update2FACode(secret, getEpoch());
+                update2FACode(secret);
                 document.getElementById("code").style.display = "block";
                 document.getElementById("info").style.display = "block";
                 document.getElementById("copy").style.display = "inline-flex";
@@ -159,9 +150,10 @@
             }
         }
 
+        // Update 2FA code every second if valid
         setInterval(() => {
             var secret = get2FASecretKey();
-            if (isValid(secret)) update2FACode(secret, getEpoch());
+            if (isValid(secret)) update2FACode(secret);
         }, 1000);
     </script>
 </body>
