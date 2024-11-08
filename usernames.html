@@ -1,168 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="White">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2FA Code Generator</title>
+    <title>Josh's Shop</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/Kvw5d9fz/smallshop-1024.webp">
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/remixicon.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
-    <!-- Custom Dark Theme Styles -->
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: #333;
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 500px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .form-control {
-            background-color: #444;
-            color: #e0e0e0;
-            border: 1px solid #555;
-        }
-
-        .form-control:focus {
-            background-color: #555;
-            color: #fff;
-            border-color: #777;
-        }
-
-        .btn {
-            background-color: #555;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        .btn:hover {
-            background-color: #666;
-        }
-
-        .text-grey {
-            color: #999;
-        }
-
-        .telegram-ad {
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: #444;
-            border-radius: 8px;
-            text-align: center;
-            color: #e0e0e0;
-        }
-
-        .telegram-ad a {
-            color: #1e90ff;
-            text-decoration: none;
-        }
-
-        .telegram-ad a:hover {
-            color: #00bfff;
-        }
-    </style>
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js" data-site="IHGLANPG" defer></script>
 </head>
-
-<body>
-    <div class="container">
-        <h2 class="text-center mb-4"><b>🛡️ Securing Your Email 🛡️</b></h2>
-        <p><b>1.</b> Enter a <b>2FA secret key</b> to generate <b>2FA codes</b> for your account.</p>
-        <p>⚠️ Do not share it, as others could use it to access your codes.</p>
-        <p>ㅤ </p>
-        <p><b>2.</b> You will reset the password to the outlook mail with this.</p>
-        <p>ㅤ</p>
-        <p><b>3.</b> Then, <b>Sign out everywhere</b>, <b>reset windows hello</b>, and <b>generate new recovery codes</b>.</p>
-        <p>ㅤ</p>
-        
-        <div class="form-group mb-4">
-            <label for="secret"><b>2FA Secret Key</b></label>
-            <input type="password" id="secret" class="form-control p-3 rounded-xl" placeholder="xxxx xxxx xxxx xxxx" oninput="check();" autocomplete="off">
+<body class="k0none">
+    <main>
+        <!-- Background Video -->
+        <div class="fixed w-full h-full">
+            <video id="backgroundVideo" style="object-fit: fill; height: 100%; width: 100%; filter: brightness(50%);" loop muted>
+                <source src="https://i.postimg.cc/15mLzBjM/a-33574494fb65e30faf269e4735e99c41.gif">
+            </video>
         </div>
 
-        <div class="mt-6 flex items-center justify-between">
-            <h3 id="code" class="d-inline-block text-xl font-bold"></h3>
-            <button id="copy" style="display: none;" class="btn" type="button" onclick="copyCode();" title="Copy">
-                <i class="fa fa-clipboard"></i> <span>Copy</span>
-            </button>
+        <!-- Click to Shop Section -->
+        <div class="clickanywhere premium_border" id="clickanywhere">
+            <div class="click_body" style="height: 100%; width: 100%;">
+                <div class="click_anywhere" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h4 style="color: white; font-size: 20pt;">click to shop</h4>
+                </div>
+            </div>
         </div>
-        <p id="info" class="mt-4 text-grey"></p>
 
-        <!-- Telegram Advertisement -->
-        <div class="telegram-ad">
-            <p>msg me on <a href="https://t.me/joshie" target="_blank" rel="noopener noreferrer">Telegram</a> @joshie</p>
+        <script>
+            $(document).ready(function() {
+                $(document.body).click(function() {
+                    $(".clickanywhere").fadeOut(1000);
+                    $(".biolink").fadeIn(1000);
+                });
+            });
+        </script>
+
+        <!-- Bio Link Section -->
+        <div id="biolink" class="biolink tilt-container" style="display:none; height:100%; width:100%;">
+            <div class="relative w-full h-full px-4 py-16 table">
+                <div class="table-cell align-middle text-center">
+                    <div class="bg-main rounded-md shadow-4xl w-full mx-auto card animate-slide-up max-w-[1100px] mt-14" style="backdrop-filter: blur(8.8px);">
+                        <div class="p-10">
+                            <div class="-mt-[85px]">
+                                <img class="w-44 h-44 rounded-full mx-auto shadow-avatar" src="https://i.postimg.cc/d3CmntT4/Shinx.gif" alt="Image" draggable="false">
+                            </div>
+                            <h2 class="text-[20px] text-white font-bold sparkle-text glow-text">josh</h2>
+                            <p class="text-[14px] text-gray-300 mt-2 text-center">Your trusted source for premium usernames.</p>
+                            <div class="flex justify-center items-center space-x-2">
+                                <h2 class="text-[20px] text-white font-bold sparkle-text glow-text"> ❤️</h2>
+                            </div>
+                            <a href=" " target="_blank" rel="noopener noreferrer"></a>
+                                <p class="text-[14px] text-gray-300 mt-2 text-center">ways to dm me</p>
+                            </a>
+                            <a href="https://t.me/luxray" target="_blank" rel="noopener noreferrer">
+                                <p class="text-[14px] text-gray-300 mt-2 text-center">t.me/luxray ⚡</p>
+                            </a>
+                            <a href="https://discordapp.com/users/277674827215536129" target="_blank" rel="noopener noreferrer"></a>
+                                <p class="text-[14px] text-gray-300 mt-2 text-center">j2sh on discord ⚡</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links Section -->
+                    <div class="w-full mx-auto card animate-slide-up max-w-[1100px] mt-12">
+                        <div class="flex flex-wrap justify-between gap-6">
+                            <!-- Social Media Buttons -->
+                            <a href="https://instagram.com/teentitans" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="images/1024px-Instagram-Icon.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@teentitans</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>                            
+<a href="https://instagram.com/bigdipper" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="images/1024px-Instagram-Icon.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@bigdipper</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+<a href="https://instagram.com/buschlight" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="images/1024px-Instagram-Icon.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@buschlight</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+<a href="https://tiktok.com/@sane" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FzyJzcTX/tiktok-logo-icon-social-media-icon-free-png.webp">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@sane</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+
+<a href="https://youtube.com/@cell" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/2yVhHP52/1384060.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@cell</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+
+                            
+                            
+                            
+                            <a href="https://www.snapchat.com/add/cubchoo" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@cubchoo</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/deerling" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@deerling</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/dragonflies" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@dragonflies</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/gothchick" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@gothchick</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/growlithe" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@growlithe</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/hogrider" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@hogrider</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/hydreigon" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@hydreigon</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/autobots" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@autobots</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/keldeo" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@keldeo</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/looting" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@looting</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/ocelots" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@ocelots</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/pterodactyl" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@pterodactyl</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/seaotters" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@seaotters</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/tootsieroll" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@tootsieroll</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://www.snapchat.com/add/warmblooded" target="_blank" rel="noopener noreferrer nofollow" class="bg-main rounded-xl flex-[100%] sm:flex-[20%] animate-slide-up shadow-4xl p-3 button">
+                                <div class="flex items-center justify-between space-x-4">
+                                    <span class="bg-secondary rounded-xl aspect-square h-12 p-2 flex items-center justify-center">
+                                        <img class="drop-shadow-discord" src="https://i.postimg.cc/FHyydhbt/1522453412-Logo-Snapchat-Png.png">
+                                    </span>
+                                    <h2 class="w-full text-left text-grey">@warmblooded</h2>
+                                    <span class="w-20" style="margin-left: 46px;">
+                                        <img src="images/link-button-arrow.png" style="width: 12px;" class="link-arrows">
+                                    </span>
+                                </div>
+                            </a>
+                            <!-- Add more buttons here following the template above -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- JavaScript for 2FA -->
-    <script src="js/jsOTP.min.js"></script>
-    <script>
-        function isValid(secret) {
-            return /^[a-z0-9]{16}$/i.test(secret);
-        }
-
-        function get2FASecretKey() {
-            return document.getElementById("secret").value.replace(/[^a-z0-9]/gi, '');
-        }
-
-        function update2FACode(secret) {
-            if (!secret) return;
-
-            var totp = new jsOTP.totp();
-            var code = totp.getOtp(secret);
-            var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
-
-            document.getElementById("code").innerHTML = code;
-            document.getElementById("code").style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
-            document.getElementById("info").innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
-        }
-
-        function copyCode() {
-            var text = document.createElement("textarea");
-            text.value = document.getElementById("code").innerHTML;
-            document.body.appendChild(text);
-            text.select();
-            document.execCommand("copy");
-            document.body.removeChild(text);
-        }
-
-        function check() {
-            var secret = get2FASecretKey();
-            if (isValid(secret)) {
-                update2FACode(secret);
-                document.getElementById("code").style.display = "block";
-                document.getElementById("info").style.display = "block";
-                document.getElementById("copy").style.display = "inline-flex";
-            } else {
-                document.getElementById("code").style.display = "none";
-                document.getElementById("info").style.display = "block";
-                document.getElementById("info").innerHTML = "Invalid secret key. It must be 16 characters, containing only a-z and 0-9.";
-            }
-        }
-
-        // Update 2FA code every second if valid
-        setInterval(() => {
-            var secret = get2FASecretKey();
-            if (isValid(secret)) update2FACode(secret);
-        }, 1000);
-    </script>
+    </main>
 </body>
 </html>
