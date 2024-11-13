@@ -52,6 +52,8 @@
             gap: 0.5rem;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            text-decoration: none;
+            border: none;
         }
 
         .btn:hover {
@@ -79,32 +81,53 @@
         .telegram-ad a:hover {
             color: #00bfff;
         }
+
+        /* Link styling for mail reset options */
+        .styled-link {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .styled-link:hover {
+            color: #00bfff;
+        }
+
+        /* New styling for Auth Setup Buttons */
+        .auth-setup-buttons {
+            margin-top: 2rem;
+        }
+
+        .auth-btn {
+            background-color: #555;
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .auth-btn:hover {
+            background-color: #666;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h2 class="text-center mb-4" style="margin-bottom: 2rem;"><b>🛡️ Securing Your Email 🛡️</b></h2>
-
-        <p><b>1. ></b> Enter a <b>2FA secret key</b> to generate <b>2FA codes</b> for your account.</p>
+        <p><b>1.</b> Enter a <b>2FA secret key</b> to generate <b>2FA codes</b> for your account.</p>
         <p>⚠️ Do not share it, as others could use it to access your codes.</p>
         <p>ㅤ </p>
-        <p><b>2a. ></b> You <b><a href="https://outlook.live.com/mail/0/" class="styled-link">reset the password</a></b> to the outlook mail with this.</p>
-        <p><b>2b. ></b> Or you <b><a href="https://mail.google.com/" class="styled-link">reset the password</a></b> to your Google mail with this.</p>
-
-        <style>
-            .styled-link {
-                color: #1e90ff; /* Same blue as the Telegram link */
-                text-decoration: none;
-            }
-        
-            .styled-link:hover {
-                color: #00bfff; /* Same hover color as the Telegram link */
-            }
-        </style>
+        <p><b>2a.</b> You <b><a href="https://outlook.live.com/mail/0/" class="styled-link">reset the password</a></b> to the outlook mail with this.</p>
+        <p><b>2b.</b> Or you <b><a href="https://mail.google.com/" class="styled-link">reset the password</a></b> to your Google mail with this.</p>
         
         <p>ㅤ</p>
-        <p><b>3. ></b> Then, <b>Sign out everywhere</b>, <b>reset windows hello</b>, and <b>generate new recovery codes</b>.</p>
+        <p><b>3.</b> Then, <b>Sign out everywhere</b>, <b>reset windows hello</b>, and <b>generate new recovery codes</b>.</p>
         <p>ㅤ</p>
         
         <div class="form-group mb-4">
@@ -112,100 +135,82 @@
             <input type="password" id="secret" class="form-control p-3 rounded-xl" placeholder="xxxx xxxx xxxx xxxx" oninput="check();" autocomplete="off">
         </div>
 
-
-        <style>
-
-            .btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                padding: 0.5rem 1rem;
-                border-radius: 8px;
-                background-color: #555;
-                color: #e0e0e0;
-                text-align: center;
-                width: 100px; /* Optional: specify a width to ensure consistent centering */
-            }
-
-            .btn:hover {
-                background-color: #666;
-            }
-
-            .fa-clipboard {
-                margin-right: 0.3rem; /* Fine-tune spacing between icon and text */
-            }
-        </style>
         <div class="mt-6 d-flex justify-content-center align-items-center flex-column text-center">
             <h3 id="code" class="text-xl font-bold mb-3"></h3>
             <button id="copy" style="display: none;" class="btn d-flex align-items-center justify-content-center" type="button" onclick="copyCode();" title="Copy">
-                <i class="fa fa-clipboard"></i> <span>Copy  </span>
+                <i class="fa fa-clipboard"></i> <span>Copy</span>
             </button>
         </div>
-        
-        
-        
         <p id="info" class="mt-4 text-grey"></p>
 
         <!-- Telegram Advertisement -->
         <div class="telegram-ad">
             <p>msg me on <b><a href="https://t.me/joshie" target="_blank" rel="noopener noreferrer">Telegram</a></b> @joshie</p>
         </div>
+
+        <!-- Authenticator Setup Buttons -->
+        <div class="auth-setup-buttons mt-4 text-center">
+            <a href="https://myaccount.google.com/two-step-verification/authenticator" target="_blank" class="btn auth-btn mb-2">
+                <i class="fa fa-google"></i> Set up Google Authenticator
+            </a>
+            <a href="https://account.live.com/proofs/Add?uaid=2b081fb9b8e741cd810071c9ca93f5f7&mpsplit=2&apt=3&mkt=en-US" target="_blank" class="btn auth-btn">
+                <i class="fa fa-windows"></i> Set up Microsoft Authenticator
+            </a>
+        </div>
     </div>
 
     <!-- JavaScript for 2FA with Google Authenticator -->
-<script src="js/jsOTP.min.js"></script>
-<script>
-    function isValid(secret) {
-        return /^[a-z2-7]{16,32}$/i.test(secret) && (secret.length === 16 || secret.length === 26 || secret.length === 32);
-    }
-
-
-    function get2FASecretKey() {
-        return document.getElementById("secret").value.replace(/[^a-z2-7]/gi, ''); // Restrict to base32 characters
-    }
-
-    function update2FACode(secret) {
-        if (!secret) return;
-
-        var totp = new jsOTP.totp();
-        var code = totp.getOtp(secret);
-        var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
-
-        document.getElementById("code").innerHTML = code;
-        document.getElementById("code").style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
-        document.getElementById("info").innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
-    }
-
-    function copyCode() {
-        var text = document.createElement("textarea");
-        text.value = document.getElementById("code").innerHTML;
-        document.body.appendChild(text);
-        text.select();
-        document.execCommand("copy");
-        document.body.removeChild(text);
-    }
-
-    function check() {
-        var secret = get2FASecretKey();
-        if (isValid(secret)) {
-            update2FACode(secret);
-            document.getElementById("code").style.display = "block";
-            document.getElementById("info").style.display = "block";
-            document.getElementById("copy").style.display = "inline-flex";
-        } else {
-            document.getElementById("code").style.display = "none";
-            document.getElementById("info").style.display = "block";
-            document.getElementById("info").innerHTML = "Invalid secret key. It must be 16 base32 characters (a-z and 2-7).";
+    <script src="js/jsOTP.min.js"></script>
+    <script>
+        function isValid(secret) {
+            return /^[a-z2-7]{16,32}$/i.test(secret) && (secret.length === 16 || secret.length === 26 || secret.length === 32);
         }
-    }
 
-    // Update 2FA code every second if valid
-    setInterval(() => {
-        var secret = get2FASecretKey();
-        if (isValid(secret)) update2FACode(secret);
-    }, 1000);
-</script>
+        function get2FASecretKey() {
+            return document.getElementById("secret").value.replace(/[^a-z2-7]/gi, ''); // Restrict to base32 characters
+        }
+
+        function update2FACode(secret) {
+            if (!secret) return;
+
+            var totp = new jsOTP.totp();
+            var code = totp.getOtp(secret);
+            var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
+
+            document.getElementById("code").innerHTML = code;
+            document.getElementById("code").style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
+            document.getElementById("info").innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
+        }
+
+        function copyCode() {
+            var text = document.createElement("textarea");
+            text.value = document.getElementById("code").innerHTML;
+            document.body.appendChild(text);
+            text.select();
+            document.execCommand("copy");
+            document.body.removeChild(text);
+        }
+
+        function check() {
+            var secret = get2FASecretKey();
+            if (isValid(secret)) {
+                update2FACode(secret);
+                document.getElementById("code").style.display = "block";
+                document.getElementById("info").style.display = "block";
+                document.getElementById("copy").style.display = "inline-flex";
+            } else {
+                document.getElementById("code").style.display = "none";
+                document.getElementById("info").style.display = "block";
+                document.getElementById("info").innerHTML = "Invalid secret key. It must be 16 base32 characters (a-z and 2-7).";
+            }
+        }
+
+        // Update 2FA code every second if valid
+        setInterval(() => {
+            var secret = get2FASecretKey();
+            if (isValid(secret)) update2FACode(secret);
+        }, 1000);
+    </script>
 
 </body>
 </html>
