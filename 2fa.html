@@ -7,8 +7,11 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/Kvw5d9fz/smallshop-1024.webp">
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
+    <!-- Custom Dark Theme Styles -->
     <style>
         body {
             background-color: #1a1a1a;
@@ -28,117 +31,108 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
+        .form-control {
+            background-color: #444;
+            color: #e0e0e0;
+            border: 1px solid #555;
+        }
+
+        .form-control:focus {
+            background-color: #555;
+            color: #fff;
+            border-color: #777;
+        }
+
         .btn {
             background-color: #555;
             color: #e0e0e0;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 0.5rem;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .btn i {
-            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            border: none;
         }
 
         .btn:hover {
             background-color: #666;
         }
 
-        .btn-google {
-            background-color: #4285F4;
-            color: #fff;
+        .text-grey {
+            color: #999;
         }
 
-        .btn-google:hover {
-            background-color: #357ae8;
-        }
-
-        .btn-microsoft {
-            background-color: #737373;
-            color: #fff;
-        }
-
-        .btn-microsoft:hover {
-            background-color: #595959;
-        }
-
-        .question-btn {
+        .telegram-ad {
+            margin-top: 2rem;
+            padding: 1rem;
             background-color: #444;
-            color: #e0e0e0;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
+            border-radius: 8px;
             text-align: center;
-            line-height: 30px;
-            cursor: pointer;
-            margin-left: 0.5rem;
-        }
-
-        .question-btn:hover {
-            background-color: #555;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #444;
             color: #e0e0e0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .close-btn {
+        .telegram-ad a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .telegram-ad a:hover {
+            color: #00bfff;
+        }
+
+        /* Link styling for mail reset options */
+        .styled-link {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .styled-link:hover {
+            color: #00bfff;
+        }
+
+        /* New styling for Auth Setup Buttons */
+        .auth-setup-buttons {
+            margin-top: 2rem;
+        }
+
+        .auth-btn {
             background-color: #555;
             color: #e0e0e0;
             padding: 0.5rem 1rem;
             border-radius: 8px;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            margin-bottom: 1rem;
         }
 
-        .close-btn:hover {
+        .auth-btn:hover {
             background-color: #666;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h2 class="text-center mb-4" style="margin-bottom: 2rem;">
-            <b>🛡️ Securing Your Email 🛡️</b>
-        </h2>
-        <p><b>1.</b> Enter a <b>2FA secret key</b> to generate <b>2FA codes</b> for your account.
-            <button class="question-btn" id="help-btn" aria-label="Help with steps">?</button>
-        </p>
+        <h2 class="text-center mb-4" style="margin-bottom: 2rem;"><b>🛡️ Securing Your Email 🛡️</b></h2>
+        <p><b>1.</b> Enter a <b>2FA secret key</b> to generate <b>2FA codes</b> for your account.</p>
         <p>⚠️ Do not share it, as others could use it to access your codes.</p>
-
+        <p>ㅤ </p>
+        <p><b>2a.</b> You <b><a href="https://outlook.live.com/mail/0/" class="styled-link">reset the password</a></b> to the outlook mail with this.</p>
+        <p><b>2b.</b> Or you <b><a href="https://mail.google.com/" class="styled-link">reset the password</a></b> to your Google mail with this.</p>
+        
+        <p>ㅤ</p>
+        <p><b>3.</b> Then, <b>Sign out everywhere</b>, <b>reset windows hello</b>, and <b>generate new recovery codes</b>.</p>
+        <p>ㅤ</p>
+        
         <div class="form-group mb-4">
             <label for="secret"><b>2FA Secret Key</b></label>
-            <input type="password" id="secret" class="form-control p-3 rounded-xl" placeholder="xxxx xxxx xxxx xxxx" oninput="check();" autocomplete="off" aria-label="Enter your 2FA secret key">
+            <input type="password" id="secret" class="form-control p-3 rounded-xl" placeholder="xxxx xxxx xxxx xxxx" oninput="check();" autocomplete="off">
         </div>
 
         <div class="mt-6 d-flex justify-content-center align-items-center flex-column text-center">
@@ -149,60 +143,74 @@
         </div>
         <p id="info" class="mt-4 text-grey"></p>
 
-        <!-- Links to Set Up Authenticators -->
-        <div class="auth-setup-buttons mt-4">
-            <a href="https://myaccount.google.com/two-step-verification/authenticator" target="_blank" class="btn btn-google">
-                <i class="fa fa-google"></i> Set Up Google Authenticator
-            </a>
-            <a href="https://account.live.com/proofs/Add?uaid=2b081fb9b8e741cd810071c9ca93f5f7&mpsplit=2&apt=3&mkt=en-US" target="_blank" class="btn btn-microsoft">
-                <i class="fa fa-windows"></i> Set Up Microsoft Authenticator
-            </a>
+        <!-- Telegram Advertisement -->
+        <div class="telegram-ad">
+            <p>msg me on <b><a href="https://t.me/joshie" target="_blank" rel="noopener noreferrer">Telegram</a></b> @joshie</p>
         </div>
 
-        <!-- Modal for Help Steps -->
-        <div class="modal" id="help-modal">
-            <div class="modal-content">
-                <h3><b>🔑 Steps for Securing Your Account</b></h3>
-                <ul style="text-align: left; padding-left: 1rem; margin-top: 1rem;">
-                    <li><b>1.</b> Enter your 2FA secret key to generate time-based codes.</li>
-                    <li><b>2.</b> Use these codes to <b>reset your account password</b>.</li>
-                    <li><b>3.</b> Sign out everywhere, reset recovery options, and secure your account.</li>
-                </ul>
-                <button class="close-btn" id="close-modal">Got it!</button>
-            </div>
+        <!-- Authenticator Setup Buttons -->
+        <div class="auth-setup-buttons mt-4 text-center">
+            <a href="https://myaccount.google.com/two-step-verification/authenticator" target="_blank" class="btn auth-btn mb-2">
+                <i class="fa fa-google"></i> Set up Google Authenticator
+            </a>
+            <a href="https://account.live.com/proofs/Add?uaid=2b081fb9b8e741cd810071c9ca93f5f7&mpsplit=2&apt=3&mkt=en-US" target="_blank" class="btn auth-btn">
+                <i class="fa fa-windows"></i> Set up Microsoft Authenticator
+            </a>
         </div>
     </div>
 
+    <!-- JavaScript for 2FA with Google Authenticator -->
+    <script src="js/jsOTP.min.js"></script>
     <script>
-        // Modal functionality
-        const helpBtn = document.getElementById("help-btn");
-        const modal = document.getElementById("help-modal");
-        const closeModal = document.getElementById("close-modal");
+        function isValid(secret) {
+            return /^[a-z2-7]{16,32}$/i.test(secret) && (secret.length === 16 || secret.length === 26 || secret.length === 32);
+        }
 
-        helpBtn.addEventListener("click", () => {
-            modal.style.display = "flex";
-        });
+        function get2FASecretKey() {
+            return document.getElementById("secret").value.replace(/[^a-z2-7]/gi, ''); // Restrict to base32 characters
+        }
 
-        closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
+        function update2FACode(secret) {
+            if (!secret) return;
 
-        window.addEventListener("click", (e) => {
-            if (e.target === modal) modal.style.display = "none";
-        });
+            var totp = new jsOTP.totp();
+            var code = totp.getOtp(secret);
+            var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
+
+            document.getElementById("code").innerHTML = code;
+            document.getElementById("code").style.color = remaining <= 5 ? "#ff4d4d" : "inherit";
+            document.getElementById("info").innerHTML = "New code in " + remaining + " second" + (remaining > 1 ? "s" : "") + ".";
+        }
 
         function copyCode() {
-            const text = document.createElement("textarea");
-            text.value = document.getElementById("code").innerText;
+            var text = document.createElement("textarea");
+            text.value = document.getElementById("code").innerHTML;
             document.body.appendChild(text);
             text.select();
             document.execCommand("copy");
             document.body.removeChild(text);
-
-            const copyBtn = document.getElementById("copy");
-            copyBtn.innerHTML = "Copied!";
-            setTimeout(() => copyBtn.innerHTML = '<i class="fa fa-clipboard"></i> Copy', 2000);
         }
+
+        function check() {
+            var secret = get2FASecretKey();
+            if (isValid(secret)) {
+                update2FACode(secret);
+                document.getElementById("code").style.display = "block";
+                document.getElementById("info").style.display = "block";
+                document.getElementById("copy").style.display = "inline-flex";
+            } else {
+                document.getElementById("code").style.display = "none";
+                document.getElementById("info").style.display = "block";
+                document.getElementById("info").innerHTML = "Invalid secret key. It must be 16 base32 characters (a-z and 2-7).";
+            }
+        }
+
+        // Update 2FA code every second if valid
+        setInterval(() => {
+            var secret = get2FASecretKey();
+            if (isValid(secret)) update2FACode(secret);
+        }, 1000);
     </script>
+
 </body>
 </html>
