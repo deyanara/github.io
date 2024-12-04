@@ -54,6 +54,7 @@
             border-radius: 8px;
             text-decoration: none;
             border: none;
+            margin-top: 1rem;
         }
 
         .btn:hover {
@@ -82,17 +83,6 @@
             color: #00bfff;
         }
 
-        /* Link styling for mail reset options */
-        .styled-link {
-            color: #1e90ff;
-            text-decoration: none;
-        }
-
-        .styled-link:hover {
-            color: #00bfff;
-        }
-
-        /* New styling for Auth Setup Buttons */
         .auth-setup-buttons {
             margin-top: 2rem;
         }
@@ -113,6 +103,24 @@
 
         .auth-btn:hover {
             background-color: #666;
+        }
+
+        .keys-btn {
+            background-color: #1e90ff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .keys-btn:hover {
+            background-color: #007acc;
         }
     </style>
 </head>
@@ -155,6 +163,13 @@
             </a>
             <a href="https://account.live.com/proofs/Add?uaid=2b081fb9b8e741cd810071c9ca93f5f7&mpsplit=2&apt=3&mkt=en-US" target="_blank" class="btn auth-btn">
                 <i class="fa fa-windows"></i> Set up Microsoft Authenticator
+            </a>
+        </div>
+
+        <!-- Keys Page Redirect Button -->
+        <div class="auth-setup-buttons mt-4 text-center">
+            <a href="keys.html" class="keys-btn">
+                <i class="fa fa-key"></i> Manage Keys
             </a>
         </div>
     </div>
