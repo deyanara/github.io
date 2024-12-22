@@ -1,272 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi 2FA Code Generator</title>
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/L6fHyfwZ/Shield-3d-icon.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+<script src="js/jsOTP.min.js"></script>
+<script>
+    const keyList = document.getElementById("keyList");
+    const accountNameInput = document.getElementById("accountName");
+    const secretKeyInput = document.getElementById("secretKey");
+    const addKeyButton = document.getElementById("addKey");
+    const timerDisplay = document.getElementById("timer");
 
-    <style>
-        
-        body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            flex-direction: column;
-            padding: 1rem;
-        }
+    let countdown = 30;
 
-        .container {
-            background-color: #333;
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-        }
+    function isValid(secret) {
+        // Remove spaces and normalize to uppercase before validation
+        secret = secret.replace(/\s+/g, '').toUpperCase();
+        return /^[A-Z2-7]{16,32}$/.test(secret);
+    }
 
-        .form-control {
-            background-color: #444;
-            color: #e0e0e0;
-            border: 1px solid #555;
-            margin-top: 1rem;
-            width: 100%;
-        }
+    function saveKeys(keys) {
+        localStorage.setItem("2faKeys", JSON.stringify(keys));
+    }
 
-        .form-control:focus {
-            background-color: #555;
-            color: #fff;
-            border-color: #777;
-        }
+    function getKeys() {
+        const keys = localStorage.getItem("2faKeys");
+        return keys ? JSON.parse(keys) : [];
+    }
 
-        .btn {
-            background-color: #555;
-            color: #e0e0e0;
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            margin-top: 1rem;
-            width: 100%;
-        }
+    function generateCode(secret) {
+        const totp = new jsOTP.totp();
+        // Remove spaces before generating the OTP
+        secret = secret.replace(/\s+/g, '');
+        return totp.getOtp(secret);
+    }
 
-        .btn:hover {
-            background-color: #666;
-        }
+    function renderKeys() {
+        keyList.innerHTML = "";
+        const keys = getKeys();
 
-        .key-list-container {
-            margin-top: 2rem;
-        }
+        keys.forEach((key, index) => {
+            const listItem = document.createElement("li");
+            listItem.className = "key-list-item";
 
-        .key-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 1rem;
-        }
+            const code = isValid(key.secret) ? generateCode(key.secret) : "Invalid Key";
 
-        .key-list-item {
-            background-color: #444;
-            margin: 0.5rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .key-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .delete-btn {
-            background-color: #ff4d4d;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 0.3rem 0.5rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .delete-btn:hover {
-            background-color: #ff1a1a;
-        }
-
-        .copy-btn {
-            background-color: #555;
-            color: #e0e0e0;
-            border: none;
-            border-radius: 4px;
-            padding: 0.3rem 0.5rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .copy-btn:hover {
-            background-color: #666;
-        }
-
-        .timer-container {
-            text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: #444;
-            border-radius: 8px;
-            color: #e0e0e0;
-        }
-
-        .timer {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h2>Multi 2FA Code Generator</h2>
-        <p>Add, view, and generate codes for multiple 2FA keys below.</p>
-        <div>
-            <input type="text" id="accountName" class="form-control" placeholder="Account Name (e.g., Google)" />
-            <input type="password" id="secretKey" class="form-control" placeholder="2FA Secret Key" />
-            <button id="addKey" class="btn">Add Key</button>
-        </div>
-    </div>
-
-    <div class="container key-list-container">
-        <h3>Saved 2FA Keys</h3>
-        <ul id="keyList" class="key-list"></ul>
-    </div>
-
-    <div class="timer-container">
-        <p>New codes will refresh in:</p>
-        <span id="timer" class="timer">30</span> seconds
-    </div>
-
-    <script src="js/jsOTP.min.js"></script>
-    <script>
-        const keyList = document.getElementById("keyList");
-        const accountNameInput = document.getElementById("accountName");
-        const secretKeyInput = document.getElementById("secretKey");
-        const addKeyButton = document.getElementById("addKey");
-        const timerDisplay = document.getElementById("timer");
-
-        let countdown = 30;
-
-        function isValid(secret) {
-            return /^[a-z2-7]{16,32}$/i.test(secret) && (secret.length === 16 || secret.length === 26 || secret.length === 32);
-        }
-
-        function saveKeys(keys) {
-            localStorage.setItem("2faKeys", JSON.stringify(keys));
-        }
-
-        function getKeys() {
-            const keys = localStorage.getItem("2faKeys");
-            return keys ? JSON.parse(keys) : [];
-        }
-
-        function generateCode(secret) {
-            const totp = new jsOTP.totp();
-            return totp.getOtp(secret);
-        }
-
-        function renderKeys() {
-            keyList.innerHTML = "";
-            const keys = getKeys();
-
-            keys.forEach((key, index) => {
-                const listItem = document.createElement("li");
-                listItem.className = "key-list-item";
-
-                const code = isValid(key.secret) ? generateCode(key.secret) : "Invalid Key";
-
-                listItem.innerHTML = `
-                    <div class="key-header">
-                        <strong>${key.name}</strong>
-                        <button class="delete-btn" onclick="deleteKey(${index})">Delete</button>
+            listItem.innerHTML = `
+                <div class="key-header">
+                    <strong>${key.name}</strong>
+                    <button class="delete-btn" onclick="deleteKey(${index})">Delete</button>
+                </div>
+                <div>
+                    <p>Current Code:</p>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span id="code-${index}" style="font-weight: bold; font-size: 1.2rem;">${code}</span>
+                        <button class="copy-btn" onclick="copyCode(${index})">Copy</button>
                     </div>
-                    <div>
-                        <p>Current Code:</p>
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span id="code-${index}" style="font-weight: bold; font-size: 1.2rem;">${code}</span>
-                            <button class="copy-btn" onclick="copyCode(${index})">Copy</button>
-                        </div>
-                    </div>
-                `;
+                </div>
+            `;
 
-                keyList.appendChild(listItem);
+            keyList.appendChild(listItem);
 
-                
-                if (isValid(key.secret)) {
-                    setInterval(() => {
-                        document.getElementById(`code-${index}`).textContent = generateCode(key.secret);
-                    }, 30000);
-                }
-            });
-        }
-
-        function copyCode(index) {
-            const code = document.getElementById(`code-${index}`).textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                alert("Code copied to clipboard!");
-            }).catch(err => {
-                console.error("Failed to copy code: ", err);
-            });
-        }
-
-        function deleteKey(index) {
-            const keys = getKeys();
-            keys.splice(index, 1);
-            saveKeys(keys);
-            renderKeys();
-        }
-
-        addKeyButton.addEventListener("click", () => {
-            const name = accountNameInput.value.trim();
-            const secret = secretKeyInput.value.trim();
-
-            if (!name || !secret) {
-                alert("Both account name and secret key are required!");
-                return;
+            
+            if (isValid(key.secret)) {
+                setInterval(() => {
+                    document.getElementById(`code-${index}`).textContent = generateCode(key.secret);
+                }, 30000);
             }
-
-            if (!isValid(secret)) {
-                alert("Invalid 2FA secret key!");
-                return;
-            }
-
-            const keys = getKeys();
-            keys.push({ name, secret });
-            saveKeys(keys);
-
-            accountNameInput.value = "";
-            secretKeyInput.value = "";
-
-            renderKeys();
         });
+    }
 
-        
-        setInterval(() => {
-            countdown -= 1;
-            if (countdown <= 0) {
-                countdown = 30;
-                renderKeys();
-            }
-            timerDisplay.textContent = countdown;
-        }, 1000);
+    function copyCode(index) {
+        const code = document.getElementById(`code-${index}`).textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            alert("Code copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy code: ", err);
+        });
+    }
 
-        
+    function deleteKey(index) {
+        const keys = getKeys();
+        keys.splice(index, 1);
+        saveKeys(keys);
         renderKeys();
-    </script>
-</body>
-</html>
+    }
+
+    addKeyButton.addEventListener("click", () => {
+        const name = accountNameInput.value.trim();
+        const secret = secretKeyInput.value.trim();
+
+        if (!name || !secret) {
+            alert("Both account name and secret key are required!");
+            return;
+        }
+
+        if (!isValid(secret)) {
+            alert("Invalid 2FA secret key!");
+            return;
+        }
+
+        const keys = getKeys();
+        keys.push({ name, secret });
+        saveKeys(keys);
+
+        accountNameInput.value = "";
+        secretKeyInput.value = "";
+
+        renderKeys();
+    });
+
+    
+    setInterval(() => {
+        countdown -= 1;
+        if (countdown <= 0) {
+            countdown = 30;
+            renderKeys();
+        }
+        timerDisplay.textContent = countdown;
+    }, 1000);
+
+    
+    renderKeys();
+</script>
